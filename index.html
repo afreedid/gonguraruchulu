@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gongura Ruchulu | Authentic Andhra Restaurant - Mugalivakkam, Chennai</title>
+  <meta name="description" content="Experience authentic Andhra cuisine at Gongura Ruchulu, Mugalivakkam, Chennai. Signature Gongura Dum Biriyanis, Spicy Starters, Table Reservations & Fast Online Delivery." />
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#E5B842',
+              goldLight: '#FBE8A6',
+              goldHover: '#C69926',
+              maroon: '#4E0F18',
+              darkRed: '#2B070B',
+              leafGreen: '#184725',
+              darkBg: '#0A0807',
+              cardBg: '#14100E',
+              cardBorder: '#2A201A',
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            brush: ['"Alex Brush"', 'cursive'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0A0807; }
+    ::-webkit-scrollbar-thumb { background: #35261F; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #E5B842; }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF6D8 0%, #E5B842 50%, #B88A19 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-pattern {
+      background-color: #0A0807;
+      background-image: radial-gradient(rgba(229, 184, 66, 0.08) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+
+    .glass-card {
+      background: rgba(20, 16, 14, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(229, 184, 66, 0.16);
+    }
+
+    /* ─── Ken Burns Slideshow ─── */
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.6s ease-in-out;
+      animation: none;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      animation: kenBurns 7s ease-in-out forwards;
+    }
+    .hero-slide.leaving {
+      opacity: 0;
+      transition: opacity 1.6s ease-in-out;
+    }
+    @keyframes kenBurns {
+      0%   { transform: scale(1.0)   translate(0%, 0%); }
+      100% { transform: scale(1.14)  translate(-1%, -1%); }
+    }
+
+    /* Slide dot indicators */
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.35);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .slide-dot.active {
+      width: 28px;
+      background: #E5B842;
+    }
+
+    /* Rating font styling */
+    .rating-val {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    /* Zomato-Style Floating Menu FAB (Compact) */
+    #zomatoMenuFabContainer {
+      position: fixed;
+      right: 1rem;
+      bottom: 4.8rem;
+      z-index: 50;
+    }
+    @media(min-width:768px){
+      #zomatoMenuFabContainer { bottom: 1.8rem; right: 1.8rem; }
+    }
+  </style>
+</head>
+<body class="bg-brand-darkBg text-neutral-100 font-sans antialiased selection:bg-brand-gold selection:text-black pb-20 md:pb-0">
+
+  <!-- Top Announcement Bar -->
+  <aside aria-label="Announcement" class="bg-gradient-to-r from-brand-maroon via-brand-darkRed to-black text-amber-200 text-xs py-2 px-4 border-b border-brand-gold/20">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2 text-center sm:text-left">
+      <div class="flex items-center gap-2 mx-auto sm:mx-0">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-semibold tracking-wide">Authentic Andhra Spices in Mugalivakkam!</span>
+        <span class="hidden md:inline text-amber-300/50">•</span>
+        <span class="hidden md:inline text-neutral-300">Open Daily: 11:30 AM – 11:00 PM</span>
+      </div>
+      <div class="flex items-center gap-4 mx-auto sm:mx-0 text-xs">
+        <a href="tel:08807518138" class="flex items-center gap-1.5 hover:text-white transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-gold"></i>
+          <span>088075 18138</span>
+        </a>
+        <span class="text-neutral-600">|</span>
+        <a href="https://wa.me/918807518138?text=Hello%20Gongura%20Ruchulu,%20I%20would%20like%20to%20order%20delicious%20food" target="_blank" class="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition font-medium">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp Quick Order</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header Navigation -->
+  <header class="sticky top-0 z-40 glass-card border-b border-brand-gold/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2 group">
+          <img src="logo.png" alt="Gongura Ruchulu Restaurant Logo" class="h-14 sm:h-16 w-auto object-contain group-hover:scale-105 transition duration-300 drop-shadow-lg" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
+          <a href="#about" class="text-neutral-300 hover:text-brand-gold transition">Our Story</a>
+          <a href="#menu" class="text-neutral-300 hover:text-brand-gold transition flex items-center gap-1.5">
+            <span>Menu</span>
+            <span class="px-1.5 py-0.5 text-[9px] bg-red-600/90 text-white rounded font-bold uppercase">Popular</span>
+          </a>
+          <a href="#reviews" class="text-neutral-300 hover:text-brand-gold transition flex items-center gap-1">
+            <span>Reviews</span>
+            <span class="flex items-center text-amber-400 font-extrabold text-xs bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/30 rating-val">
+              ★ 4.7
+            </span>
+          </a>
+          <a href="#location" class="text-neutral-300 hover:text-brand-gold transition">Find Us</a>
+        </nav>
+
+
+
+        <!-- Single Zomato-Style Veg Only Toggle (Header) -->
+        <div class="flex items-center">
+          <label for="vegToggleHeader" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900/90 border border-emerald-500/40 hover:border-emerald-500 cursor-pointer transition select-none shadow-sm">
+            <span class="w-3.5 h-3.5 rounded border border-emerald-500 flex items-center justify-center p-0.5 bg-neutral-950">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">Veg Only</span>
+            <div class="relative inline-block w-8 h-4">
+              <input type="checkbox" id="vegToggleHeader" onchange="toggleVegOnly(this.checked)" class="sr-only peer" />
+              <div class="w-8 h-4 bg-neutral-800 rounded-full peer peer-checked:bg-emerald-600 transition duration-300"></div>
+              <div class="absolute left-0.5 top-0.5 bg-neutral-400 w-3 h-3 rounded-full transition-transform duration-300 peer-checked:translate-x-4 peer-checked:bg-white"></div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Mobile Quick Trigger (Cart & Menu only - No duplicate veg toggle) -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <button onclick="toggleCartModal()" class="relative p-2 rounded-lg bg-neutral-900 border border-brand-gold/30 text-amber-300" aria-label="Open mobile cart">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span id="mobileCartCountBadge" class="absolute -top-1 -right-1 bg-red-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </button>
+          <button id="mobileMenuBtn" onclick="toggleMobileNav()" class="p-2 text-neutral-300 hover:text-white" aria-label="Open navigation menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobileNavMenu" class="hidden lg:hidden border-t border-brand-cardBorder bg-neutral-950/95 px-6 py-6 space-y-4">
+      <a href="#about" onclick="toggleMobileNav()" class="block text-base text-neutral-200 hover:text-brand-gold font-medium">Our Story</a>
+      <a href="#menu" onclick="toggleMobileNav()" class="block text-base text-neutral-200 hover:text-brand-gold font-medium">Full Menu & Prices</a>
+      <a href="#reviews" onclick="toggleMobileNav()" class="block text-base text-neutral-200 hover:text-brand-gold font-medium">Customer Reviews (4.7 ★)</a>
+      <a href="#location" onclick="toggleMobileNav()" class="block text-base text-neutral-200 hover:text-brand-gold font-medium">Location Map & Directions</a>
+      <div class="pt-4 border-t border-neutral-800 flex flex-col gap-3">
+        <a href="https://wa.me/918807518138?text=Hi%20Gongura%20Ruchulu!%20I'd%20like%20to%20order." target="_blank" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-center text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> Order via WhatsApp
+        </a>
+        <a href="#menu" onclick="toggleMobileNav()" class="w-full py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-amber-300 font-bold text-center text-xs tracking-wider uppercase">
+          Browse Menu Card
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-12 sm:py-16">
+
+    <!-- ─── Ken Burns Slideshow Background ─── -->
+    <div id="heroSlideshow" class="absolute inset-0 z-0">
+      <div class="hero-slide active" style="background-image: url('hero1.jpg')"></div>
+      <div class="hero-slide"        style="background-image: url('hero2.jpg')"></div>
+      <div class="hero-slide"        style="background-image: url('hero3.jpg')"></div>
+      <div class="hero-slide"        style="background-image: url('schezwan_fried_rice.jpg')"></div>
+    </div>
+
+    <!-- Dark gradient overlay — keeps text legible -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/60 to-black/40 pointer-events-none"></div>
+    <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none"></div>
+
+    <!-- Slide dot indicators -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2" id="slideDots">
+      <div class="slide-dot active" onclick="goToSlide(0)"></div>
+      <div class="slide-dot"        onclick="goToSlide(1)"></div>
+      <div class="slide-dot"        onclick="goToSlide(2)"></div>
+      <div class="slide-dot"        onclick="goToSlide(3)"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30">
+            <span class="flex h-2 w-2 rounded-full bg-brand-gold animate-ping"></span>
+            <span class="text-[11px] sm:text-xs uppercase font-bold tracking-widest text-amber-200">Authentic Andhra Spices • Mugalivakkam</span>
+          </div>
+
+          <!-- Primary Headline (Option 3: Official Brand Motto) -->
+          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-bold font-cinzel leading-[1.1] tracking-tight">
+            <span class="block text-white">Authentic Flavors.</span>
+            <span class="block gold-gradient-text">Memorable Meals.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-neutral-300 font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <span class="italic font-playfair font-semibold text-amber-300 block mb-1">"More Than Food... It's a Feeling"</span>
+            Welcome to Gongura Ruchulu, Mugalivakkam — home to Chennai's signature tangy Gongura Dum Biriyanis, crisp Andhra starters, and rich culinary heritage crafted with freshly ground spices.
+          </p>
+
+          <!-- Social Proof Rating Card (Refined 4.7 Rating Font) -->
+          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-4 p-3.5 rounded-2xl bg-neutral-900/90 border border-brand-gold/30 backdrop-blur-md">
+            <div class="flex items-center gap-2.5 bg-amber-500/15 px-3.5 py-1.5 rounded-xl border border-amber-500/30">
+              <span class="text-3xl font-extrabold text-amber-400 rating-val leading-none">4.7</span>
+              <div class="flex flex-col text-left">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                </div>
+                <span class="text-[10px] text-neutral-300 font-medium tracking-wide">Google Verified Score</span>
+              </div>
+            </div>
+            <div class="text-xs text-neutral-400 border-l border-neutral-700 pl-4 py-1 text-left hidden sm:block">
+              <span class="text-white font-semibold block">500+ Happy Foodies Served</span>
+              <span class="text-[11px] text-neutral-400">Loved by Telugu & Chennai spice lovers</span>
+            </div>
+          </div>
+
+          <!-- Primary CTAs (Order via WhatsApp Focused) -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <!-- Order via WhatsApp Primary CTA -->
+            <a href="https://wa.me/918807518138?text=Hi%20Gongura%20Ruchulu!%20I%20would%20like%20to%20order%20delicious%20food." target="_blank" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-emerald-900/30 hover:scale-105 transition duration-300 flex items-center justify-center gap-2.5">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>Order via WhatsApp</span>
+            </a>
+
+            <!-- View Menu CTA -->
+            <a href="#menu" class="w-full sm:w-auto px-7 py-4 rounded-xl glass-card hover:bg-black/60 text-amber-200 font-bold text-xs sm:text-sm uppercase tracking-wider border border-brand-gold/40 hover:border-brand-gold transition duration-300 flex items-center justify-center gap-2">
+              <i data-lucide="book-open" class="w-4 h-4 text-brand-gold"></i>
+              <span>Explore Menu</span>
+            </a>
+
+            <!-- Directions CTA -->
+            <a href="#location" class="w-full sm:w-auto px-5 py-4 rounded-xl glass-card hover:bg-black/60 text-neutral-200 font-semibold text-xs sm:text-sm border border-white/20 hover:border-white/40 transition duration-300 flex items-center justify-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold"></i>
+              <span>Find Us</span>
+            </a>
+          </div>
+
+          <!-- Feature Bullets -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 text-xs text-neutral-300">
+            <div class="flex items-center gap-2">
+              <i data-lucide="leaf" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span>Gongura Leaves</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="flame" class="w-4 h-4 text-red-500 shrink-0"></i>
+              <span>Dum Cooked</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-brand-gold shrink-0"></i>
+              <span>100% Halal & Pure</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-blue-400 shrink-0"></i>
+              <span>Open Till 11 PM</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero: Interactive 4-Slide Dish & Review Showcase (Ultra Photography) -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Glowing Accent Background -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-gold via-red-600 to-amber-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-100 transition duration-1000"></div>
+
+            <div class="relative rounded-3xl overflow-hidden bg-brand-cardBg border border-brand-gold/30 shadow-2xl">
+              <!-- High-res Dish Image with Dynamic Carousel -->
+              <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-black">
+                <img id="featuredDishImg" src="gongura_biryani.jpg" alt="Signature Andhra Gongura Dum Biriyani" class="w-full h-full object-cover transition-all duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                
+                <!-- Category Tag & Slide Navigation Controls -->
+                <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                  <span id="featuredDishTag" class="px-3 py-1 rounded-full bg-red-600/90 text-[10px] font-black uppercase tracking-wider text-white shadow-md">
+                    Chef's Signature
+                  </span>
+                  <div class="flex items-center gap-2 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-brand-gold/30 text-white text-xs font-semibold shadow-lg">
+                    <button onclick="prevFeaturedSlide()" class="hover:text-brand-gold transition px-1 text-sm active:scale-90" aria-label="Previous Slide">❮</button>
+                    <span id="featuredSlideNum" class="text-[11px] text-amber-300 font-bold rating-val">1 / 4</span>
+                    <button onclick="nextFeaturedSlide()" class="hover:text-brand-gold transition px-1 text-sm active:scale-90" aria-label="Next Slide">❯</button>
+                  </div>
+                </div>
+
+                <!-- Title & Price Overlay -->
+                <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                  <div>
+                    <h3 id="featuredDishTitle" class="text-xl sm:text-2xl font-bold font-cinzel text-white drop-shadow">Gongura Dum Biriyani</h3>
+                    <p id="featuredDishDesc" class="text-xs text-amber-200 line-clamp-1">Tender chicken pieces infused with authentic tangy Gongura leaf paste</p>
+                  </div>
+                  <span id="featuredDishPrice" class="text-2xl font-black text-brand-gold rating-val ml-2 shrink-0">₹250</span>
+                </div>
+              </div>
+
+              <!-- Verified Customer Quote (Synchronized with 4 Options) -->
+              <div class="p-4 bg-black/70 border-t border-neutral-800">
+                <div class="flex items-start gap-3">
+                  <div id="featuredReviewAvatar" class="w-9 h-9 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs shrink-0 shadow">
+                    B
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <span id="featuredReviewAuthor" class="text-xs font-bold text-neutral-200">Bhargavi Jagarapu</span>
+                      <span class="text-amber-400 text-xs font-bold">★★★★★</span>
+                    </div>
+                    <p id="featuredReviewText" class="text-xs text-neutral-300 italic mt-0.5 leading-relaxed">
+                      "As I'm in Chennai, I miss Andhra biryani. Gongura Ruchulu fulfilled it with authentic spice and taste!"
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 4 Options Indicator Dots -->
+                <div class="flex items-center justify-center gap-2 mt-3 pt-2.5 border-t border-neutral-800/80">
+                  <button onclick="goToSlide(0)" class="featured-dot active w-6 h-1.5 rounded-full bg-brand-gold transition-all duration-300" title="Slide 1: Gongura Dum Biriyani"></button>
+                  <button onclick="goToSlide(1)" class="featured-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" title="Slide 2: Andhra Chicken 65"></button>
+                  <button onclick="goToSlide(2)" class="featured-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" title="Slide 3: Chicken Lollipop"></button>
+                  <button onclick="goToSlide(3)" class="featured-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" title="Slide 4: Fried Rice & Noodles"></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Story & Heritage Section -->
+  <section id="about" class="py-20 relative bg-brand-darkBg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-xs font-semibold text-amber-300">
+            <i data-lucide="heart" class="w-3.5 h-3.5 text-red-400"></i>
+            <span>Our Heritage & Passion</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white tracking-wide">
+            Taste The <span class="gold-gradient-text">Andhra Soul</span> In Chennai
+          </h2>
+
+          <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+            At <strong>Gongura Ruchulu</strong> (Dhanam Nagar, Mugalivakkam), we bring the fiery, nostalgic warmth of Telugu kitchens to your plate. Anyone who has tasted genuine Andhra food knows that <em class="text-brand-gold font-serif">Gongura (sorrel leaves)</em> is not just an ingredient — it is an emotion.
+          </p>
+
+          <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+            From our slow-simmered <strong>Gongura Dum Biriyani</strong> and succulent <strong>Mutton Biriyani (₹350)</strong> to sizzling <strong>Chicken Lollipop, Chicken 555 & Kaju Chicken</strong>, every dish is cooked fresh upon order without compromising on authentic spice blends.
+          </p>
+
+          <!-- Key Highlights -->
+          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-neutral-800">
+            <div>
+              <div class="text-2xl font-bold font-cinzel text-brand-gold">100%</div>
+              <div class="text-xs text-neutral-400 font-medium">Authentic Guntur Spices</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-cinzel text-brand-gold">45+</div>
+              <div class="text-xs text-neutral-400 font-medium">Curated Menu Delicacies</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold font-cinzel text-brand-gold">Fast</div>
+              <div class="text-xs text-neutral-400 font-medium">Delivery in Mugalivakkam & Porur</div>
+            </div>
+            <div>
+              <div class="text-3xl font-extrabold text-brand-gold rating-val">4.7 ★</div>
+              <div class="text-xs text-neutral-400 font-medium">Verified Customer Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Resolution Culinary Showcase (Clean food photos, No screenshots) -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-xl group">
+              <img src="about_starters.jpg" alt="Andhra Chicken 65 Starters" class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80'" />
+              <div class="p-3 bg-black/90 text-center">
+                <span class="text-xs font-bold text-amber-300">Andhra Chicken 65 Starters</span>
+              </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-neutral-800 shadow-xl bg-neutral-900 p-5 text-center">
+              <i data-lucide="utensils-crossed" class="w-8 h-8 text-brand-gold mx-auto mb-2"></i>
+              <div class="font-cinzel font-bold text-white text-base">Pure Veg & Non-Veg</div>
+              <div class="text-xs text-neutral-400 mt-1">Separate preparation & kitchen care</div>
+            </div>
+          </div>
+
+          <div class="space-y-4 pt-6">
+            <div class="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-xl bg-gradient-to-br from-brand-maroon to-neutral-900 p-5 text-left">
+              <div class="flex items-center gap-1 text-amber-400 mb-2">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+              <div class="text-2xl font-extrabold text-white rating-val">4.7 Overall Rating</div>
+              <p class="text-xs text-neutral-300 mt-2">
+                "Fulfilled my craving for Andhra spice right here in Mugalivakkam."
+              </p>
+              <div class="mt-3 text-[11px] text-amber-300 font-semibold">— Verified Local Review</div>
+            </div>
+
+            <div class="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-xl group">
+              <img src="gongura_biryani.jpg" alt="Authentic Andhra Gongura Dum Biriyani" class="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition duration-500" />
+              <div class="p-3 bg-black/90 text-center">
+                <span class="text-xs font-bold text-brand-gold">Signature Gongura Dum Biriyani (₹250)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section with Live Search & Filters -->
+  <section id="menu" class="py-20 bg-neutral-950 relative border-t border-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header (Andhra Gongura Ruchulu Menu) -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-xs font-semibold text-brand-gold mb-3">
+          <i data-lucide="flame" class="w-3.5 h-3.5 text-red-500"></i>
+          <span>Authentic Telugu Cuisine • Real Prices</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white tracking-wide">
+          Andhra Gongura <span class="gold-gradient-text">Ruchulu Menu</span>
+        </h2>
+        <p class="text-neutral-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto leading-relaxed">
+          From signature slow-dum Gongura Biriyanis and crispy starters to wok-tossed fried rice & noodles — prepared fresh upon order.
+        </p>
+
+        <!-- Search & Filter Controls -->
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div class="relative w-full sm:w-80">
+            <i data-lucide="search" class="w-4 h-4 text-neutral-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="menuSearchInput" oninput="filterMenuItems()" placeholder="Search Biriyani, 65, Noodles..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-sm text-white focus:outline-none focus:border-brand-gold transition" />
+          </div>
+
+          <!-- Quick Diet Filter -->
+          <div class="flex items-center gap-2 w-full sm:w-auto justify-center">
+            <button onclick="setDietFilter('all')" id="filter-all" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-brand-gold text-black">
+              All Items
+            </button>
+            <button onclick="setDietFilter('nonveg')" id="filter-nonveg" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-neutral-900 border border-neutral-800 text-red-400 hover:border-red-500">
+              🍗 Non-Veg
+            </button>
+            <button onclick="setDietFilter('veg')" id="filter-veg" class="px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-neutral-900 border border-neutral-800 text-emerald-400 hover:border-emerald-500">
+              🌿 Pure Veg
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex items-center justify-center gap-2 mt-4 flex-wrap">
+          <button onclick="setCategoryTab('all')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-brand-gold/30 text-amber-200 bg-brand-gold/10 hover:bg-brand-gold/20" data-cat="all">
+            All Categories
+          </button>
+          <button onclick="setCategoryTab('nonveg-biriyani')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white" data-cat="nonveg-biriyani">
+            Non-Veg Biriyanis
+          </button>
+          <button onclick="setCategoryTab('veg-biriyani')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white" data-cat="veg-biriyani">
+            Veg Biriyanis
+          </button>
+          <button onclick="setCategoryTab('nonveg-starters')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white" data-cat="nonveg-starters">
+            Non-Veg Starters
+          </button>
+          <button onclick="setCategoryTab('veg-starters')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white" data-cat="veg-starters">
+            Veg Starters
+          </button>
+          <button onclick="setCategoryTab('fried-rice')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white" data-cat="fried-rice">
+            Fried Rice
+          </button>
+          <button onclick="setCategoryTab('noodles')" class="cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white" data-cat="noodles">
+            Noodles
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Grid Render Target -->
+      <div id="menuItemsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="noMenuMatches" class="hidden text-center py-16">
+        <i data-lucide="utensils" class="w-12 h-12 text-neutral-600 mx-auto mb-3"></i>
+        <h4 class="text-lg font-cinzel text-neutral-300">No dishes match your search</h4>
+        <p class="text-xs text-neutral-500 mt-1">Try searching for "Biriyani", "Paneer", "Lollipop", or "Noodles"</p>
+        <button onclick="resetMenuFilters()" class="mt-4 px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-xs font-bold text-brand-gold rounded-lg">
+          Reset All Filters
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Verified Google Reviews Section (Updated 4.7 Rating) -->
+  <section id="reviews" class="py-20 bg-brand-darkBg relative border-t border-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-xs font-semibold text-amber-300 mb-3">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>Customer Testimonials & Google Feedback</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white">
+          Loved By Foodies <span class="gold-gradient-text">Across Chennai</span>
+        </h2>
+
+        <!-- Rating Hero Card (Updated 4.7) -->
+        <div class="mt-6 p-6 rounded-3xl bg-neutral-900 border border-brand-gold/30 max-w-xl mx-auto shadow-2xl">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-center sm:text-left">
+              <div class="flex items-center justify-center sm:justify-start gap-3">
+                <span class="text-6xl font-black text-amber-400 rating-val tracking-tight">4.7</span>
+                <div>
+                  <div class="flex text-amber-400">
+                    <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                  </div>
+                  <span class="text-xs text-neutral-400 font-medium">Updated Customer Score</span>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-300 mt-2">
+                Based on verified customer visits & online food deliveries in Mugalivakkam.
+              </p>
+            </div>
+
+            <button onclick="openReviewModal()" class="shrink-0 px-5 py-3 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xs uppercase tracking-wider hover:opacity-95 transition shadow-lg flex items-center gap-2">
+              <i data-lucide="pen-tool" class="w-4 h-4"></i>
+              <span>Write A Review</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div id="reviewsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1: Bhargavi Jagarapu -->
+        <div class="p-6 rounded-2xl glass-card border border-brand-gold/30 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center font-cinzel">
+                  B
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Bhargavi Jagarapu</h4>
+                  <span class="text-[11px] text-neutral-400">Local Guide • 4 Reviews</span>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+            </div>
+            <div class="text-[11px] text-brand-gold font-semibold mb-2">Delivery • Lunch • ₹200–400</div>
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed italic">
+              "The biryani was delicious. As I'm in Chennai, I will always miss the taste of andhra biryani. This gongura ruchulu fulfilled it with spice and taste."
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-neutral-800 text-[11px] text-neutral-500 flex items-center justify-between">
+            <span>Google Verified Review</span>
+            <span class="text-emerald-400 font-medium">✓ Highly Recommended</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="p-6 rounded-2xl glass-card border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center font-cinzel">
+                  K
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Kalyan Chakravarthy</h4>
+                  <span class="text-[11px] text-neutral-400">Mugalivakkam Resident</span>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+            </div>
+            <div class="text-[11px] text-brand-gold font-semibold mb-2">Dine-in • Dinner • ₹250–500</div>
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed italic">
+              "The Gongura Chicken Biriyani has the exact Guntur spice kick I was craving! Starters like Dragon Chicken and Chicken Lollipop are top tier."
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-neutral-800 text-[11px] text-neutral-500 flex items-center justify-between">
+            <span>Google Verified Review</span>
+            <span class="text-emerald-400 font-medium">✓ Highly Recommended</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="p-6 rounded-2xl glass-card border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center font-cinzel">
+                  S
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Sujatha Rao</h4>
+                  <span class="text-[11px] text-neutral-400">Food Lover</span>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+            </div>
+            <div class="text-[11px] text-brand-gold font-semibold mb-2">Takeaway • ₹150–300</div>
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed italic">
+              "Very reasonable prices. A full Biriyani easily satisfies two people, and their Gongura Vegetable Biriyani is a blessing for vegetarians."
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-neutral-800 text-[11px] text-neutral-500 flex items-center justify-between">
+            <span>Google Verified Review</span>
+            <span class="text-emerald-400 font-medium">✓ Highly Recommended</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOCATION & EMBEDDED GOOGLE MAP SECTION -->
+  <section id="location" class="py-20 bg-neutral-950 relative border-t border-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Address & Directions -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-xs font-semibold text-brand-gold">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+            <span>Visit Us In Mugalivakkam</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-cinzel font-bold text-white">
+            Where Authentic <span class="gold-gradient-text">Flavors Live</span>
+          </h2>
+
+          <div class="space-y-4 text-sm">
+            <!-- Full Address -->
+            <div class="p-4 rounded-2xl bg-neutral-900/80 border border-neutral-800 flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-brand-maroon/50 text-brand-gold shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Address</h4>
+                <p class="text-neutral-300 mt-1 leading-relaxed">
+                  1/219, Dhanam Nagar Rd, Dhanam Nagar, Kumudam Nagar, Mugalivakkam, Chennai, Tamil Nadu 600125
+                </p>
+                <div class="mt-2 text-xs text-neutral-400 font-medium">
+                  Landmark: Near Ramapuram & DLF IT Park belt
+                </div>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="p-4 rounded-2xl bg-neutral-900/80 border border-neutral-800 flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-amber-900/40 text-amber-400 shrink-0">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Timings</h4>
+                <p class="text-neutral-300 mt-1">
+                  Monday – Sunday: <span class="text-emerald-400 font-semibold">11:30 AM – 11:00 PM</span>
+                </p>
+                <p class="text-xs text-neutral-400 mt-0.5">Dine-in, Takeaway & Doorstep Delivery</p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="p-4 rounded-2xl bg-neutral-900/80 border border-neutral-800 flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-emerald-900/40 text-emerald-400 shrink-0">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-base">Phone & Bookings</h4>
+                <p class="text-neutral-300 mt-1">
+                  Call: <a href="tel:08807518138" class="text-white hover:text-brand-gold font-bold">088075 18138</a>
+                </p>
+                <p class="text-xs text-neutral-400 mt-0.5">Party orders & corporate catering available</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Navigation Actions -->
+          <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+            <a href="https://share.google/MatIwIRoPhdvqCFmo" target="_blank" class="w-full sm:w-auto flex-1 py-3.5 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xs uppercase tracking-wider text-center shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2">
+              <i data-lucide="navigation" class="w-4 h-4"></i>
+              <span>Get Directions</span>
+            </a>
+            <a href="https://wa.me/918807518138?text=Hello%20Gongura%20Ruchulu!" target="_blank" class="w-full sm:w-auto flex-1 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center transition flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Real Interactive Embedded Google Map -->
+        <div class="lg:col-span-7">
+          <div class="rounded-3xl overflow-hidden border border-brand-gold/30 bg-neutral-900 shadow-2xl">
+            
+            <div class="p-4 bg-neutral-950 border-b border-neutral-800 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="text-xs text-neutral-400 ml-2 font-mono">Google Maps • Mugalivakkam, Chennai</span>
+              </div>
+              <a href="https://share.google/MatIwIRoPhdvqCFmo" target="_blank" class="text-xs text-brand-gold hover:underline flex items-center gap-1 font-semibold">
+                Open in App <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Google Map iFrame -->
+            <div class="relative w-full h-[380px] sm:h-[420px] bg-neutral-950">
+              <iframe 
+                title="Gongura Ruchulu Location Map"
+                src="https://maps.google.com/maps?q=1/219,%20Dhanam%20Nagar%20Rd,%20Dhanam%20Nagar,%20Kumudam%20Nagar,%20Mugalivakkam,%20Chennai,%20Tamil%20Nadu%20600125&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0 filter contrast-105"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <!-- Footer Strip inside Map Card -->
+            <div class="p-4 bg-neutral-950/90 border-t border-neutral-800 grid grid-cols-3 text-center text-xs">
+              <div>
+                <span class="text-neutral-500 block">Nearby</span>
+                <span class="text-neutral-200 font-semibold">DLF & Ramapuram</span>
+              </div>
+              <div class="border-x border-neutral-800">
+                <span class="text-neutral-500 block">Parking</span>
+                <span class="text-neutral-200 font-semibold">Two-Wheeler & Car</span>
+              </div>
+              <div>
+                <span class="text-neutral-500 block">Price For Two</span>
+                <span class="text-brand-gold font-bold">₹350 - ₹500</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Bottom Quick Navigation Bar (Sticky for Phone Screens) -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-neutral-950/95 backdrop-blur-lg border-t border-neutral-800 p-2 flex items-center justify-around text-[10px] font-semibold text-neutral-400">
+    <a href="#hero" class="flex flex-col items-center gap-1 py-1 px-2 hover:text-white">
+      <i data-lucide="home" class="w-5 h-5 text-neutral-300"></i>
+      <span>Home</span>
+    </a>
+    <a href="#menu" class="flex flex-col items-center gap-1 py-1 px-2 hover:text-white">
+      <i data-lucide="utensils" class="w-5 h-5 text-brand-gold"></i>
+      <span>Menu</span>
+    </a>
+    <a href="https://wa.me/918807518138?text=Hi%20Gongura%20Ruchulu!%20I%20would%20like%20to%20order." target="_blank" class="flex flex-col items-center gap-1 py-1 px-3 text-emerald-400 font-bold bg-emerald-600/10 rounded-xl border border-emerald-500/30">
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+      <span>WhatsApp</span>
+    </a>
+    <button onclick="toggleCartModal()" class="flex flex-col items-center gap-1 py-1 px-2 hover:text-white relative" aria-label="View Cart">
+      <i data-lucide="shopping-bag" class="w-5 h-5 text-neutral-300"></i>
+      <span id="mobileBottomCartBadge" class="absolute top-0 right-1 bg-red-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center ring-1 ring-black">0</span>
+      <span>Cart</span>
+    </button>
+    <a href="#location" class="flex flex-col items-center gap-1 py-1 px-2 hover:text-white">
+      <i data-lucide="map-pin" class="w-5 h-5 text-brand-gold"></i>
+      <span>Map</span>
+    </a>
+  </div>
+
+  <!-- Cart Modal / Side Drawer -->
+  <div id="cartModal" class="fixed inset-0 z-50 hidden overflow-hidden">
+    <div class="absolute inset-0 bg-black/75 backdrop-blur-sm" onclick="toggleCartModal()"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="w-screen max-w-md bg-neutral-900 border-l border-brand-cardBorder shadow-2xl flex flex-col">
+        
+        <!-- Header -->
+        <div class="p-6 border-b border-neutral-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-gold"></i>
+            <h3 class="font-cinzel text-lg font-bold text-white">Your Food Cart</h3>
+          </div>
+          <button onclick="toggleCartModal()" class="text-neutral-400 hover:text-white" aria-label="Close cart">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Items Container -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+          <!-- Dynamically filled by JS -->
+        </div>
+
+        <!-- Footer -->
+        <div class="p-6 border-t border-neutral-800 bg-neutral-950 space-y-4">
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between text-neutral-400">
+              <span>Item Total</span>
+              <span id="cartSubtotal" class="font-semibold text-white">₹0</span>
+            </div>
+            <div class="flex justify-between text-neutral-400">
+              <span>Packaging & Delivery</span>
+              <span class="text-emerald-400 font-semibold">FREE (Local order)</span>
+            </div>
+            <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-neutral-800">
+              <span>Grand Total</span>
+              <span id="cartGrandTotal" class="text-brand-gold font-cinzel text-lg">₹0</span>
+            </div>
+          </div>
+
+          <button onclick="proceedToCheckout()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-extrabold text-xs uppercase tracking-wider shadow-lg hover:opacity-90 transition flex items-center justify-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Send Order via WhatsApp</span>
+          </button>
+
+          <p class="text-[10px] text-center text-neutral-400">
+            Manager line: 088075 18138. Pay via UPI or Cash upon Delivery.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div id="reviewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-neutral-900 border border-brand-gold/40 rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
+      <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-white" aria-label="Close modal">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-2">
+          <i data-lucide="star" class="w-6 h-6 fill-amber-400"></i>
+        </div>
+        <h3 class="font-cinzel text-xl font-bold text-white">Leave A Review</h3>
+        <p class="text-xs text-neutral-400 mt-1">Share your taste experience with Gongura Ruchulu</p>
+      </div>
+
+      <form id="newReviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase mb-1">Your Name</label>
+          <input type="text" required id="revName" placeholder="e.g. Venkat Reddy" class="w-full px-4 py-2.5 rounded-xl bg-neutral-800 border border-neutral-700 text-sm text-white focus:outline-none focus:border-brand-gold" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase mb-1">Rating</label>
+          <select id="revStars" class="w-full px-4 py-2.5 rounded-xl bg-neutral-800 border border-neutral-700 text-sm text-amber-400 font-bold focus:outline-none focus:border-brand-gold">
+            <option value="5" selected>★★★★★ 5.0 - Authentic Andhra Spice</option>
+            <option value="4">★★★★☆ 4.0 - Very Good Taste</option>
+            <option value="3">★★★☆☆ 3.0 - Average</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase mb-1">Dish Ordered</label>
+          <input type="text" id="revDish" placeholder="e.g. Gongura Fry Piece Biriyani & Chicken 65" class="w-full px-4 py-2.5 rounded-xl bg-neutral-800 border border-neutral-700 text-sm text-white focus:outline-none focus:border-brand-gold" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase mb-1">Your Feedback</label>
+          <textarea id="revComment" rows="3" required placeholder="Tell others how flavorful and authentic the spices were..." class="w-full px-4 py-2.5 rounded-xl bg-neutral-800 border border-neutral-700 text-sm text-white focus:outline-none focus:border-brand-gold"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xs uppercase tracking-wider shadow-lg hover:opacity-95 transition mt-2">
+          Post Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Zomato-Style Floating Category Menu FAB (Compact & Sleek Pill) -->
+  <div id="zomatoMenuFabContainer">
+    <button onclick="toggleCategoryModal()" class="px-3.5 py-1.5 rounded-full bg-black/90 border border-brand-gold/60 hover:border-brand-gold text-amber-300 shadow-xl shadow-black/80 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-1.5 backdrop-blur-md cursor-pointer group" aria-label="Browse Menu Categories">
+      <i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-gold"></i>
+      <span class="text-[11px] font-black uppercase tracking-wider text-neutral-100 group-hover:text-amber-300 transition font-sans">Menu</span>
+    </button>
+  </div>
+
+  <!-- Zomato-Style Category Bottom Sheet / Modal -->
+  <div id="categoryModal" class="fixed inset-0 z-50 hidden transition-all duration-300">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleCategoryModal()"></div>
+
+    <div class="fixed bottom-0 md:bottom-auto md:top-1/2 left-0 right-0 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:max-w-md bg-neutral-950 border-t md:border border-brand-gold/40 rounded-t-3xl md:rounded-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.95)] max-h-[85vh] flex flex-col overflow-hidden">
+      <!-- Mobile drag pill -->
+      <div class="md:hidden w-12 h-1.5 bg-neutral-800 rounded-full mx-auto mt-3"></div>
+
+      <!-- Header -->
+      <div class="p-5 border-b border-neutral-800/80 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-brand-gold/20 flex items-center justify-center text-brand-gold">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-cinzel text-lg font-bold text-white tracking-wide">Menu Categories</h3>
+            <p class="text-[11px] text-neutral-400">Jump directly to your favorite Andhra section</p>
+          </div>
+        </div>
+        <button onclick="toggleCategoryModal()" class="w-8 h-8 rounded-full bg-neutral-900 text-neutral-400 hover:text-white flex items-center justify-center transition" aria-label="Close menu categories">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Categories List (Zomato UI with Item Counts) -->
+      <div class="p-4 overflow-y-auto space-y-2 flex-1">
+        
+        <!-- All Dishes -->
+        <button onclick="selectCategoryFromModal('all')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-brand-gold/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">⭐</span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-gold transition">All Dishes</h4>
+              <span class="text-[10px] text-neutral-400">Complete Andhra menu</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-brand-gold/15 text-brand-gold text-[11px] font-bold">70 items</span>
+        </button>
+
+        <!-- Non-Veg Biriyanis -->
+        <button onclick="selectCategoryFromModal('nonveg-biriyani')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-red-500/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="w-4 h-4 rounded border border-red-500 flex items-center justify-center p-0.5">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            </span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-red-400 transition">Non-Veg Biriyanis</h4>
+              <span class="text-[10px] text-neutral-400">Gongura Dum, Fry Piece, Mutton & Prawns</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-red-950/60 border border-red-800/40 text-red-400 text-[11px] font-bold">10 items</span>
+        </button>
+
+        <!-- Veg Biriyanis -->
+        <button onclick="selectCategoryFromModal('veg-biriyani')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="w-4 h-4 rounded border border-emerald-500 flex items-center justify-center p-0.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            </span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-400 transition">Veg Biriyanis</h4>
+              <span class="text-[10px] text-neutral-400">Gongura Veg, Paneer, Mushroom & Kaju</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-800/40 text-emerald-400 text-[11px] font-bold">6 items</span>
+        </button>
+
+        <!-- Non-Veg Starters -->
+        <button onclick="selectCategoryFromModal('nonveg-starters')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-red-500/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="w-4 h-4 rounded border border-red-500 flex items-center justify-center p-0.5">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            </span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-red-400 transition">Non-Veg Starters</h4>
+              <span class="text-[10px] text-neutral-400">Chicken 65, Lollipop, 555, Majestic & Prawns</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-red-950/60 border border-red-800/40 text-red-400 text-[11px] font-bold">14 items</span>
+        </button>
+
+        <!-- Veg Starters -->
+        <button onclick="selectCategoryFromModal('veg-starters')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="w-4 h-4 rounded border border-emerald-500 flex items-center justify-center p-0.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            </span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-400 transition">Veg Starters</h4>
+              <span class="text-[10px] text-neutral-400">Gobi 65, Paneer Majestic, Babycorn & Manchurian</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-800/40 text-emerald-400 text-[11px] font-bold">12 items</span>
+        </button>
+
+        <!-- Fried Rice -->
+        <button onclick="selectCategoryFromModal('fried-rice')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-brand-gold/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🍚</span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-gold transition">Fried Rice Items</h4>
+              <span class="text-[10px] text-neutral-400">Veg, Egg, Chicken & Schezwan fried rice</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-neutral-800 text-amber-200 text-[11px] font-bold">8 items</span>
+        </button>
+
+        <!-- Noodles -->
+        <button onclick="selectCategoryFromModal('noodles')" class="w-full p-3 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 hover:border-brand-gold/50 transition flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🍜</span>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-gold transition">Noodles</h4>
+              <span class="text-[10px] text-neutral-400">Veg, Paneer, Chicken, Prawn & Schezwan</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-neutral-800 text-amber-200 text-[11px] font-bold">11 items</span>
+        </button>
+
+      </div>
+
+      <!-- Quick WhatsApp Ordering Hint -->
+      <div class="p-3.5 bg-neutral-900 border-t border-neutral-800 flex items-center justify-between text-xs">
+        <span class="text-neutral-400">Craving something hot?</span>
+        <a href="https://wa.me/918807518138?text=Hi%20Gongura%20Ruchulu!%20I%20would%20like%20to%20order." target="_blank" class="text-emerald-400 font-bold hover:underline flex items-center gap-1.5">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-16 md:bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition duration-300 pointer-events-none">
+    <div class="bg-neutral-900 border border-brand-gold text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
+      <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+      <span id="toastMsg" class="text-xs font-medium">Added to cart!</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-neutral-900 pt-16 pb-12 text-neutral-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-900">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center font-cinzel font-bold text-brand-gold text-lg">
+              GR
+            </div>
+            <div>
+              <span class="font-cinzel text-lg font-bold text-white tracking-wider block">Gongura Ruchulu</span>
+              <span class="text-[10px] text-brand-gold uppercase tracking-widest">Andhra Restaurant</span>
+            </div>
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            Bringing authentic Andhra culinary heritage to Mugalivakkam, Chennai. Spicy, aromatic, and deeply satisfying food cooked with love.
+          </p>
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-xs">
+            <span>★ 4.7 Google Customer Score</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-cinzel font-bold text-white uppercase tracking-wider mb-4 text-sm">Quick Links</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#about" class="hover:text-brand-gold transition">Our Story & Heritage</a></li>
+            <li><a href="#menu" class="hover:text-brand-gold transition">Explore Verified Menu</a></li>
+            <li><a href="#reviews" class="hover:text-brand-gold transition">Customer Reviews (4.7 ★)</a></li>
+            <li><a href="#location" class="hover:text-brand-gold transition">Location Map & Directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-cinzel font-bold text-white uppercase tracking-wider mb-4 text-sm">Signature Delicacies</h4>
+          <ul class="space-y-2.5 text-neutral-400">
+            <li>Gongura Dum Biriyani (₹250)</li>
+            <li>Chicken 65 & Chicken Majestic (₹160/₹200)</li>
+            <li>Kaju Biriyani & Paneer Majestic (₹250/₹180)</li>
+            <li>Chicken Lollipop Sauce (₹170)</li>
+            <li>Gongura Mutton Biriyani (₹370)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-cinzel font-bold text-white uppercase tracking-wider mb-4 text-sm">Visit & Contact</h4>
+          <p class="text-neutral-300">1/219, Dhanam Nagar Rd, Kumudam Nagar, Mugalivakkam, Chennai 600125</p>
+          <p class="mt-2 text-white font-bold">Call: <a href="tel:08807518138" class="text-brand-gold hover:underline">088075 18138</a></p>
+          <div class="mt-4 flex gap-3">
+            <a href="https://share.google/MatIwIRoPhdvqCFmo" target="_blank" class="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-brand-gold text-amber-300" title="Google Maps">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </a>
+            <a href="https://wa.me/918807518138" target="_blank" class="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-emerald-500 text-emerald-400" title="WhatsApp">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="tel:08807518138" class="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-blue-400 text-blue-400" title="Phone">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
+        <div>
+          © <span id="currentYear"></span> Gongura Ruchulu • All rights reserved. Authentic Andhra Taste in Chennai.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#hero" class="text-neutral-400 hover:text-white transition">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    // Authentic Menu Items Transcribed from Gongura Ruchulu
+    const MENU_ITEMS = [
+      // NON-VEG BIRIYANIS
+      { id: 'nvb1', name: 'Single Dum Biriyani', price: 150, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Personal portion of traditional slow-dum spiced chicken biriyani.' },
+      { id: 'nvb2', name: 'Full Dum Biriyani', price: 230, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Hearty full portion served with fresh raita and spicy salan.' },
+      { id: 'nvb3', name: 'Gongura Dum Biriyani', price: 250, category: 'nonveg-biriyani', type: 'nonveg', popular: true, desc: 'House crown dish! Cooked with authentic tangy Andhra sorrel leaves.' },
+      { id: 'nvb4', name: 'Fry Piece Biriyani', price: 250, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Aromatic biriyani rice topped with Andhra spice-fried chicken pieces.' },
+      { id: 'nvb5', name: 'Gongura Fry Piece Biriyani', price: 260, category: 'nonveg-biriyani', type: 'nonveg', popular: true, desc: 'Crispy fried spiced chicken combined with tangy gongura rice.' },
+      { id: 'nvb6', name: 'Chicken 65 Biriyani', price: 260, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Layered biriyani topped with crispy hot Andhra chicken 65 bites.' },
+      { id: 'nvb7', name: 'Special Chicken Biriyani', price: 270, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Chef special chicken masala layered with fragrant basmati.' },
+      { id: 'nvb8', name: 'Dum Roast Biriyani', price: 270, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Slow roasted succulent chicken tossed with roasted spices.' },
+      { id: 'nvb9', name: 'Chicken Mugalai Biriyani', price: 270, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Creamy, rich and aromatic Mughlai style chicken biriyani.' },
+      { id: 'nvb10', name: 'Mutton Biriyani', price: 350, category: 'nonveg-biriyani', type: 'nonveg', popular: true, desc: 'Tender bone-in mutton pieces slow dum cooked to rich perfection.' },
+      { id: 'nvb11', name: 'Gongura Mutton Biriyani', price: 370, category: 'nonveg-biriyani', type: 'nonveg', popular: true, desc: 'Rich succulent mutton infused with spicy Gongura masala.' },
+      { id: 'nvb12', name: 'Fish Biriyani', price: 280, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Fresh fish fillets spiced and layered with saffron-scented rice.' },
+      { id: 'nvb13', name: 'Prawns Biriyani', price: 290, category: 'nonveg-biriyani', type: 'nonveg', desc: 'Juicy coastal prawns spiced with coastal Andhra masala.' },
+
+      // VEG BIRIYANIS
+      { id: 'vb1', name: 'Vegetable Biriyani', price: 200, category: 'veg-biriyani', type: 'veg', desc: 'Garden fresh vegetables layered with basmati and whole spices.' },
+      { id: 'vb2', name: 'Mushroom Biriyani', price: 210, category: 'veg-biriyani', type: 'veg', desc: 'Plump button mushrooms cooked in fragrant biriyani gravy.' },
+      { id: 'vb3', name: 'Kaju Biriyani', price: 250, category: 'veg-biriyani', type: 'veg', popular: true, desc: 'Golden roasted cashews loaded into rich ghee-infused biriyani.' },
+      { id: 'vb4', name: 'Paneer Biriyani', price: 230, category: 'veg-biriyani', type: 'veg', desc: 'Soft cottage cheese cubes marinated in mint, curd and spices.' },
+      { id: 'vb5', name: 'Gongura Vegetable Biriyani', price: 230, category: 'veg-biriyani', type: 'veg', popular: true, desc: 'Signature tangy sorrel Gongura leaf twist for vegetable lovers.' },
+      { id: 'vb6', name: 'Kaju Paneer Biriyani', price: 260, category: 'veg-biriyani', type: 'veg', popular: true, desc: 'The ultimate royal veg combination of rich cashews and paneer.' },
+
+      // NON-VEG STARTERS
+      { id: 'nvs1', name: 'Chilly Chicken', price: 160, category: 'nonveg-starters', type: 'nonveg', desc: 'Tossed with crunchy bell peppers, onions and spicy sauces.' },
+      { id: 'nvs2', name: 'Chicken Manchurian', price: 160, category: 'nonveg-starters', type: 'nonveg', desc: 'Indo-Chinese style tender chicken with ginger garlic glaze.' },
+      { id: 'nvs3', name: 'Chicken Lollipop (5 pcs)', price: 150, category: 'nonveg-starters', type: 'nonveg', popular: true, desc: 'Crispy fried chicken winglets served with spicy dip.' },
+      { id: 'nvs4', name: 'Chicken Wings (5 pcs)', price: 100, category: 'nonveg-starters', type: 'nonveg', desc: 'Juicy chicken wings coated in house seasoning.' },
+      { id: 'nvs5', name: 'Chicken 65', price: 160, category: 'nonveg-starters', type: 'nonveg', popular: true, desc: 'Authentic Andhra starter with fresh curry leaves and chillies.' },
+      { id: 'nvs6', name: 'Chicken Lollipop Sauce (5 pcs)', price: 170, category: 'nonveg-starters', type: 'nonveg', popular: true, desc: 'Crisp lollipops tossed in fiery savory chef sauce.' },
+      { id: 'nvs7', name: 'Chicken Majestic', price: 200, category: 'nonveg-starters', type: 'nonveg', popular: true, desc: 'Hyderabadi dry chicken strips tossed with mint & green chillies.' },
+      { id: 'nvs8', name: 'Dragon Chicken', price: 200, category: 'nonveg-starters', type: 'nonveg', desc: 'Spicy sweet-and-tangy tossed chicken with cashews.' },
+      { id: 'nvs9', name: 'Kaju Chicken', price: 220, category: 'nonveg-starters', type: 'nonveg', desc: 'Succulent chicken tossed with whole roasted cashews.' },
+      { id: 'nvs10', name: 'Spicy Wings (5 pcs)', price: 120, category: 'nonveg-starters', type: 'nonveg', desc: 'Extra hot spiced chicken wings.' },
+      { id: 'nvs11', name: 'Pepper Chicken', price: 220, category: 'nonveg-starters', type: 'nonveg', desc: 'Freshly cracked black pepper roasted chicken.' },
+      { id: 'nvs12', name: 'Chicken 555', price: 200, category: 'nonveg-starters', type: 'nonveg', desc: 'Crispy fried chicken strips coated in special tangy sauce.' },
+      { id: 'nvs13', name: 'Chilly Prawns', price: 260, category: 'nonveg-starters', type: 'nonveg', desc: 'Plump prawns tossed with green chillies & scallions.' },
+      { id: 'nvs14', name: 'Pepper Prawns', price: 270, category: 'nonveg-starters', type: 'nonveg', desc: 'South Indian pepper fry tossed fresh prawns.' },
+      { id: 'nvs15', name: 'Golden Prawns', price: 270, category: 'nonveg-starters', type: 'nonveg', desc: 'Batter fried crispy golden prawns.' },
+      { id: 'nvs16', name: 'Apollo Fish', price: 260, category: 'nonveg-starters', type: 'nonveg', desc: 'Classic Andhra batter fried fish tossed with yogurt & chillies.' },
+      { id: 'nvs17', name: 'Chilly Fish', price: 260, category: 'nonveg-starters', type: 'nonveg', desc: 'Crispy fish tossed in spicy oriental chili garlic sauce.' },
+
+      // VEG STARTERS
+      { id: 'vs1', name: 'Gobi Manchurian', price: 150, category: 'veg-starters', type: 'veg', desc: 'Crispy cauliflower florets in tangy soya-garlic sauce.' },
+      { id: 'vs2', name: 'Chilly Gobi', price: 150, category: 'veg-starters', type: 'veg', desc: 'Spicy fried cauliflower with green chillies.' },
+      { id: 'vs3', name: 'Gobi 65', price: 150, category: 'veg-starters', type: 'veg', desc: 'Classic 65 seasoning on tender cauliflower.' },
+      { id: 'vs4', name: 'Babycorn Chilly', price: 140, category: 'veg-starters', type: 'veg', desc: 'Crispy babycorn tossed in chili sauce.' },
+      { id: 'vs5', name: 'Babycorn 65', price: 140, category: 'veg-starters', type: 'veg', desc: 'Crunchy babycorn fritters with curry leaf flavor.' },
+      { id: 'vs6', name: 'Babycorn Manchurian', price: 140, category: 'veg-starters', type: 'veg', desc: 'Babycorn tossed in savory manchurian sauce.' },
+      { id: 'vs7', name: 'Mushroom 65', price: 150, category: 'veg-starters', type: 'veg', desc: 'Juicy spiced button mushroom fritters.' },
+      { id: 'vs8', name: 'Mushroom Manchurian', price: 150, category: 'veg-starters', type: 'veg', desc: 'Fresh mushrooms in tangy glaze.' },
+      { id: 'vs9', name: 'Chilly Mushroom', price: 150, category: 'veg-starters', type: 'veg', desc: 'Spicy stir fried mushrooms with peppers.' },
+      { id: 'vs10', name: 'Paneer 65', price: 160, category: 'veg-starters', type: 'veg', desc: 'Golden cubes of spiced cottage cheese.' },
+      { id: 'vs11', name: 'Paneer Manchurian', price: 160, category: 'veg-starters', type: 'veg', desc: 'Soft paneer in luscious manchurian sauce.' },
+      { id: 'vs12', name: 'Chilly Paneer', price: 160, category: 'veg-starters', type: 'veg', desc: 'Tossed cottage cheese with bell peppers and green chillies.' },
+      { id: 'vs13', name: 'Paneer Majestic', price: 180, category: 'veg-starters', type: 'veg', popular: true, desc: 'Silky paneer strips tossed with mint, curd, and spices.' },
+      { id: 'vs14', name: 'Babycorn Majestic', price: 170, category: 'veg-starters', type: 'veg', desc: 'Babycorn sauteed in Hyderabadi majestic herbs.' },
+
+      // FRIED RICE ITEMS
+      { id: 'fr1', name: 'Veg Fried Rice', price: 110, category: 'fried-rice', type: 'veg', desc: 'Wok tossed basmati rice with diced carrots and beans.' },
+      { id: 'fr2', name: 'Paneer Fried Rice', price: 130, category: 'fried-rice', type: 'veg', desc: 'Wok fried rice loaded with paneer cubes.' },
+      { id: 'fr3', name: 'Mushroom Fried Rice', price: 120, category: 'fried-rice', type: 'veg', desc: 'Fragrant mushroom wok-tossed rice.' },
+      { id: 'fr4', name: 'Veg Schezwan Fried Rice', price: 120, category: 'fried-rice', type: 'veg', desc: 'Spicy Schezwan red pepper rice.' },
+      { id: 'fr5', name: 'Paneer Schezwan Fried Rice', price: 140, category: 'fried-rice', type: 'veg', desc: 'Zesty spicy schezwan wok tossed with paneer.' },
+      { id: 'fr6', name: 'Mushroom Schezwan Fried Rice', price: 130, category: 'fried-rice', type: 'veg', desc: 'Mushroom fried rice with fiery schezwan kick.' },
+      { id: 'fr7', name: 'Egg Fried Rice', price: 110, category: 'fried-rice', type: 'nonveg', desc: 'Classic comfort wok tossed egg and spring onions.' },
+      { id: 'fr8', name: 'Chicken Fried Rice', price: 130, category: 'fried-rice', type: 'nonveg', popular: true, desc: 'Tender chicken shreds tossed with seasoned rice.' },
+      { id: 'fr9', name: 'Egg Schezwan Fried Rice', price: 120, category: 'fried-rice', type: 'nonveg', desc: 'Egg rice with spicy homemade schezwan sauce.' },
+      { id: 'fr10', name: 'Chicken Schezwan Fried Rice', price: 140, category: 'fried-rice', type: 'nonveg', desc: 'Spicy chicken fried rice with rich smoky wok aroma.' },
+
+      // NOODLES
+      { id: 'nd1', name: 'Veg Noodles', price: 110, category: 'noodles', type: 'veg', desc: 'Hakka noodles tossed with crisp julienned vegetables.' },
+      { id: 'nd2', name: 'Mushroom Noodles', price: 120, category: 'noodles', type: 'veg', desc: 'Noodles tossed with button mushrooms and soya.' },
+      { id: 'nd3', name: 'Paneer Noodles', price: 130, category: 'noodles', type: 'veg', desc: 'Loaded with soft paneer cubes and garlic.' },
+      { id: 'nd4', name: 'Veg Schezwan Noodles', price: 120, category: 'noodles', type: 'veg', desc: 'Spicy stir-fried veg noodles in schezwan chili sauce.' },
+      { id: 'nd5', name: 'Mushroom Schezwan Noodles', price: 130, category: 'noodles', type: 'veg', desc: 'Schezwan pepper wok noodles with mushrooms.' },
+      { id: 'nd6', name: 'Paneer Schezwan Noodles', price: 140, category: 'noodles', type: 'veg', desc: 'Cottage cheese noodles tossed in chili paste.' },
+      { id: 'nd7', name: 'Egg Noodles', price: 110, category: 'noodles', type: 'nonveg', desc: 'Scrambled eggs tossed with tender noodles.' },
+      { id: 'nd8', name: 'Chicken Noodles', price: 130, category: 'noodles', type: 'nonveg', popular: true, desc: 'Stir fried shredded chicken and wok noodles.' },
+      { id: 'nd9', name: 'Egg Schezwan Noodles', price: 120, category: 'noodles', type: 'nonveg', desc: 'Spicy red pepper noodles tossed with eggs.' },
+      { id: 'nd10', name: 'Chicken Schezwan Noodles', price: 140, category: 'noodles', type: 'nonveg', desc: 'Spicy chicken hakka noodles.' },
+      { id: 'nd11', name: 'Prawn Noodles', price: 170, category: 'noodles', type: 'nonveg', desc: 'Juicy prawns tossed with wok noodles.' },
+      { id: 'nd12', name: 'Fish Noodles', price: 170, category: 'noodles', type: 'nonveg', desc: 'Delicate fish bites tossed in seasoned noodles.' }
+    ];
+
+    // State
+    let currentDietFilter = 'all';
+    let currentCategoryTab = 'all';
+    let searchQuery = '';
+    let cart = [];
+
+    // Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      renderMenu();
+      updateCartUI();
+      lucide.createIcons();
+
+      // Default reservation date to today
+      const today = new Date().toISOString().split('T')[0];
+      const inlineDate = document.getElementById('inlineDate');
+      if (inlineDate) inlineDate.value = today;
+    });
+
+    // Render Menu Items
+    function renderMenu() {
+      const container = document.getElementById('menuItemsGrid');
+      const emptyState = document.getElementById('noMenuMatches');
+      
+      const filtered = MENU_ITEMS.filter(item => {
+        if (currentDietFilter === 'veg' && item.type !== 'veg') return false;
+        if (currentDietFilter === 'nonveg' && item.type !== 'nonveg') return false;
+        if (currentCategoryTab !== 'all' && item.category !== currentCategoryTab) return false;
+
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase();
+          const matchName = item.name.toLowerCase().includes(q);
+          const matchDesc = item.desc.toLowerCase().includes(q);
+          const matchCat = item.category.toLowerCase().includes(q);
+          if (!matchName && !matchDesc && !matchCat) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      container.innerHTML = filtered.map(item => {
+        const isVeg = item.type === 'veg';
+        const badgeColor = isVeg ? 'border-emerald-500 text-emerald-400' : 'border-red-500 text-red-400';
+        const dotColor = isVeg ? 'bg-emerald-500' : 'bg-red-500';
+
+        const cartEntry = cart.find(c => c.id === item.id);
+        const qty = cartEntry ? cartEntry.qty : 0;
+
+        return `
+          <div class="glass-card rounded-2xl p-5 border border-brand-cardBorder hover:border-brand-gold/40 transition duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded border flex items-center justify-center p-0.5 ${badgeColor}">
+                    <span class="w-2 h-2 rounded-full ${dotColor}"></span>
+                  </span>
+                  ${item.popular ? '<span class="text-[9px] bg-red-600/90 text-white font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Popular</span>' : ''}
+                </div>
+                <span class="font-cinzel font-black text-lg text-brand-gold">₹${item.price}</span>
+              </div>
+
+              <h4 class="font-cinzel font-bold text-base text-white group-hover:text-brand-gold transition">${item.name}</h4>
+              <p class="text-xs text-neutral-400 mt-1 leading-relaxed">${item.desc}</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-neutral-800 flex items-center justify-between">
+              <span class="text-[11px] text-neutral-500 capitalize">${item.category.replace('-', ' ')}</span>
+              
+              <!-- Zomato/Swiggy Style In-Place Quantity Counter -->
+              <div class="inline-flex items-center">
+                ${qty === 0 ? `
+                  <button onclick="addToCart('${item.id}')" class="px-4 py-1.5 rounded-xl bg-neutral-900 border border-brand-gold/50 hover:bg-brand-gold hover:text-black text-brand-gold text-xs font-black uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 shadow hover:scale-105 active:scale-95">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                    <span>ADD</span>
+                  </button>
+                ` : `
+                  <div class="flex items-center gap-2 bg-neutral-900 border border-brand-gold/80 rounded-xl p-1 shadow-md">
+                    <button onclick="changeCartQtyByItemId('${item.id}', -1)" class="w-6 h-6 rounded-lg bg-neutral-800 text-brand-gold hover:text-white flex items-center justify-center font-bold text-sm active:scale-90 transition" aria-label="Decrease quantity">−</button>
+                    <span class="text-xs font-bold text-white px-1.5 font-sans">${qty}</span>
+                    <button onclick="changeCartQtyByItemId('${item.id}', 1)" class="w-6 h-6 rounded-lg bg-brand-gold text-black hover:bg-amber-400 flex items-center justify-center font-bold text-sm active:scale-90 transition" aria-label="Increase quantity">+</button>
+                  </div>
+                `}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Filter Controls with Zomato "Veg Only" Sync
+    function setDietFilter(filter) {
+      currentDietFilter = filter;
+      ['all', 'veg', 'nonveg'].forEach(f => {
+        const btn = document.getElementById('filter-' + f);
+        if (btn) {
+          if (f === filter) {
+            btn.className = 'px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-brand-gold text-black';
+          } else {
+            btn.className = `px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-neutral-900 border border-neutral-800 text-${f === 'veg' ? 'emerald' : f === 'nonveg' ? 'red' : 'neutral'}-400`;
+          }
+        }
+      });
+
+      // Synchronize Veg Only Toggle in Header
+      const isVeg = (filter === 'veg');
+      const vegToggle = document.getElementById('vegToggleHeader');
+      if (vegToggle) vegToggle.checked = isVeg;
+
+      renderMenu();
+    }
+
+    function toggleVegOnly(isVeg) {
+      setDietFilter(isVeg ? 'veg' : 'all');
+      showToast(isVeg ? '🌱 Showing Pure Veg dishes only' : 'Showing all authentic dishes');
+      
+      const menuEl = document.getElementById('menu');
+      if (menuEl && window.scrollY < 300) {
+        menuEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Zomato Category Modal Handlers
+    function toggleCategoryModal() {
+      const modal = document.getElementById('categoryModal');
+      if (!modal) return;
+      modal.classList.toggle('hidden');
+    }
+
+    function selectCategoryFromModal(category) {
+      setCategoryTab(category);
+      toggleCategoryModal();
+      
+      const menuEl = document.getElementById('menu');
+      if (menuEl) {
+        menuEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function setCategoryTab(cat) {
+      currentCategoryTab = cat;
+      document.querySelectorAll('.cat-tab').forEach(tab => {
+        if (tab.getAttribute('data-cat') === cat) {
+          tab.className = 'cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-brand-gold/30 text-amber-200 bg-brand-gold/10 hover:bg-brand-gold/20';
+        } else {
+          tab.className = 'cat-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-neutral-800 text-neutral-400 hover:text-white';
+        }
+      });
+      renderMenu();
+    }
+
+    function filterMenuItems() {
+      searchQuery = document.getElementById('menuSearchInput').value;
+      renderMenu();
+    }
+
+    function resetMenuFilters() {
+      searchQuery = '';
+      document.getElementById('menuSearchInput').value = '';
+      currentDietFilter = 'all';
+      currentCategoryTab = 'all';
+      setDietFilter('all');
+      setCategoryTab('all');
+    }
+
+    // Cart Handlers with Real-Time In-Place Menu Sync
+    function addToCart(itemId) {
+      const item = MENU_ITEMS.find(m => m.id === itemId);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === itemId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+
+      showToast(`Added "${item.name}" to cart!`);
+      updateCartUI();
+      renderMenu();
+    }
+
+    function changeCartQty(index, delta) {
+      if (cart[index]) {
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1);
+        }
+      }
+      updateCartUI();
+      renderMenu();
+    }
+
+    function changeCartQtyByItemId(itemId, delta) {
+      const idx = cart.findIndex(c => c.id === itemId);
+      if (idx !== -1) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+      } else if (delta > 0) {
+        const item = MENU_ITEMS.find(m => m.id === itemId);
+        if (item) cart.push({ ...item, qty: 1 });
+      }
+      updateCartUI();
+      renderMenu();
+    }
+
+    function updateCartUI() {
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      const b1 = document.getElementById('cartCountBadge');
+      if (b1) b1.textContent = count;
+      const b2 = document.getElementById('mobileCartCountBadge');
+      if (b2) b2.textContent = count;
+      const b3 = document.getElementById('floatingCartBadge');
+      if (b3) b3.textContent = count;
+      const b4 = document.getElementById('mobileBottomCartBadge');
+      if (b4) b4.textContent = count;
+
+      const container = document.getElementById('cartItemsContainer');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const grandTotalEl = document.getElementById('cartGrandTotal');
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-neutral-500">
+            <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto mb-3 text-neutral-700"></i>
+            <p class="text-sm font-cinzel text-neutral-400">Your cart is empty</p>
+            <p class="text-xs text-neutral-500 mt-1">Explore our authentic Andhra menu and add items to your plate.</p>
+            <button onclick="toggleCartModal(); scrollToMenu();" class="mt-4 px-4 py-2 bg-neutral-800 text-brand-gold text-xs font-bold rounded-lg uppercase">Browse Menu</button>
+          </div>
+        `;
+        subtotalEl.textContent = '₹0';
+        grandTotalEl.textContent = '₹0';
+        lucide.createIcons();
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = cart.map((item, index) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        const isVeg = item.type === 'veg';
+
+        return `
+          <div class="p-4 rounded-xl bg-neutral-800/80 border border-neutral-700/60 flex items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full ${isVeg ? 'bg-emerald-500' : 'bg-red-500'}"></span>
+                <h5 class="text-sm font-semibold text-white">${item.name}</h5>
+              </div>
+              <div class="text-xs text-brand-gold font-cinzel mt-1">₹${item.price} × ${item.qty} = <span class="font-bold">₹${itemTotal}</span></div>
+            </div>
+
+            <div class="flex items-center gap-2 bg-neutral-900 rounded-lg p-1 border border-neutral-700">
+              <button onclick="changeCartQty(${index}, -1)" class="w-6 h-6 rounded flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-800">-</button>
+              <span class="text-xs font-bold text-white px-1.5">${item.qty}</span>
+              <button onclick="changeCartQty(${index}, 1)" class="w-6 h-6 rounded flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-800">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = `₹${subtotal}`;
+      grandTotalEl.textContent = `₹${subtotal}`;
+      lucide.createIcons();
+    }
+
+    function proceedToCheckout() {
+      if (cart.length === 0) {
+        showToast('Please add items to your cart first!');
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      let orderText = `*🍗 NEW ORDER — GONGURA RUCHULU (MUGALIVAKKAM)*%0A%0A*Order Items:*%0A`;
+      
+      cart.forEach((item, i) => {
+        const icon = item.type === 'veg' ? '🌱' : '🍗';
+        orderText += `${i + 1}. ${icon} ${item.name} × ${item.qty} — ₹${item.price * item.qty}%0A`;
+      });
+
+      orderText += `%0A━━━━━━━━━━━━━━━━━━━━%0A`;
+      orderText += `*💰 Total Order Value: ₹${total}*%0A`;
+      orderText += `*📦 Delivery: Fast Delivery in Mugalivakkam*%0A`;
+      orderText += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+      orderText += `*Customer Delivery Details:*%0A`;
+      orderText += `📍 Delivery Address: %0A`;
+      orderText += `📞 Phone: %0A%0A`;
+      orderText += `Please confirm my order and share estimated delivery time. Thank you!`;
+
+      const whatsappUrl = `https://wa.me/918807518138?text=${orderText}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Reviews Handler
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('revName').value;
+      const stars = parseInt(document.getElementById('revStars').value);
+      const dish = document.getElementById('revDish').value || 'Authentic Andhra Food';
+      const comment = document.getElementById('revComment').value;
+
+      const starIcons = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+
+      const reviewCard = document.createElement('div');
+      reviewCard.className = 'p-6 rounded-2xl glass-card border border-brand-gold/40 flex flex-col justify-between';
+      reviewCard.innerHTML = `
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center font-cinzel">
+                ${name.charAt(0).toUpperCase()}
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">${name}</h4>
+                <span class="text-[11px] text-neutral-400">Just Now • Verified Customer</span>
+              </div>
+            </div>
+            <div class="text-amber-400 text-sm font-bold">${starIcons}</div>
+          </div>
+          <div class="text-[11px] text-brand-gold font-semibold mb-2">Ordered: ${dish}</div>
+          <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed italic">
+            "${comment}"
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-neutral-800 text-[11px] text-neutral-500 flex items-center justify-between">
+          <span>Website Review</span>
+          <span class="text-emerald-400 font-medium">✓ Verified Feedback</span>
+        </div>
+      `;
+
+      const container = document.getElementById('reviewsContainer');
+      container.insertBefore(reviewCard, container.firstChild);
+
+      closeReviewModal();
+      showToast('Thank you! Your 4.7★ review has been added.');
+    }
+
+    // Modal & Nav Toggles
+    function toggleCartModal() {
+      document.getElementById('cartModal').classList.toggle('hidden');
+    }
+
+    function openReviewModal() {
+      document.getElementById('reviewModal').classList.remove('hidden');
+    }
+
+    function closeReviewModal() {
+      document.getElementById('reviewModal').classList.add('hidden');
+    }
+
+    function toggleMobileNav() {
+      document.getElementById('mobileNavMenu').classList.toggle('hidden');
+    }
+
+    function scrollToMenu() {
+      const el = document.getElementById('menu');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3200);
+    }
+
+    // Ensure dark theme default
+    if (localStorage.getItem('gr-theme')) {
+      localStorage.removeItem('gr-theme');
+    }
+    if (localStorage.getItem('gr-headline-style')) {
+      localStorage.removeItem('gr-headline-style');
+    }
+
+    // ─── Ken Burns Slideshow & 4-Slide Dish Showcase Engine ───
+    const FEATURED_ITEMS = [
+      {
+        tag: "Chef's Signature • Crown Dish",
+        title: "Gongura Dum Biriyani",
+        desc: "Slow-dum cooked chicken infused with authentic tangy Gongura leaf paste",
+        price: "₹250",
+        img: "gongura_biryani.jpg",
+        avatar: "B",
+        author: "Bhargavi Jagarapu (Local Guide)",
+        review: "As I'm in Chennai, I miss Andhra biryani. Gongura Ruchulu fulfilled it with authentic spice and taste!"
+      },
+      {
+        tag: "Crispy Starter • Bestseller",
+        title: "Andhra Chicken 65",
+        desc: "Fiery marinated boneless chicken tossed with fresh curry leaves & Guntur spices",
+        price: "₹160",
+        img: "about_starters.jpg",
+        avatar: "K",
+        author: "Kishore Reddy (Verified Customer)",
+        review: "Super crispy, succulent, and packed with that genuine Andhra spice punch! Must try with Biriyani."
+      },
+      {
+        tag: "Chef's Special • Finger Licking",
+        title: "Chicken Lollipop (5 pcs)",
+        desc: "Crispy chicken drumettes tossed with signature spices, served with fresh lemon & onion rings",
+        price: "₹150",
+        img: "hero3.jpg",
+        avatar: "V",
+        author: "Venkatesh B. (Regular Foodie)",
+        review: "Juicy inside, ultra-crispy outside. Ordered via WhatsApp, delivered piping hot within 25 minutes!"
+      },
+      {
+        tag: "Indo-Chinese Wok • Hot & Savory",
+        title: "Chicken Schezwan Fried Rice",
+        desc: "Wok-tossed long-grain basmati with fiery Schezwan chili, tender chicken & crisp spring onions",
+        price: "₹140",
+        img: "schezwan_fried_rice.jpg",
+        avatar: "D",
+        author: "Divya Ramesh (Google Review)",
+        review: "Generous portion, authentic wok aroma, and that fiery punch! Best value comfort meal in Mugalivakkam."
+      }
+    ];
+
+    function updateFeaturedCard(index) {
+      const item = FEATURED_ITEMS[index];
+      if (!item) return;
+
+      const imgEl = document.getElementById('featuredDishImg');
+      const tagEl = document.getElementById('featuredDishTag');
+      const titleEl = document.getElementById('featuredDishTitle');
+      const descEl = document.getElementById('featuredDishDesc');
+      const priceEl = document.getElementById('featuredDishPrice');
+      const avatarEl = document.getElementById('featuredReviewAvatar');
+      const authorEl = document.getElementById('featuredReviewAuthor');
+      const textEl = document.getElementById('featuredReviewText');
+      const numEl = document.getElementById('featuredSlideNum');
+
+      if (imgEl) {
+        imgEl.style.opacity = '0.2';
+        setTimeout(() => {
+          imgEl.src = item.img;
+          imgEl.style.opacity = '1';
+        }, 120);
+      }
+      if (tagEl) tagEl.textContent = item.tag;
+      if (titleEl) titleEl.textContent = item.title;
+      if (descEl) descEl.textContent = item.desc;
+      if (priceEl) priceEl.textContent = item.price;
+      if (avatarEl) avatarEl.textContent = item.avatar;
+      if (authorEl) authorEl.textContent = item.author;
+      if (textEl) textEl.textContent = `"${item.review}"`;
+      if (numEl) numEl.textContent = `${index + 1} / 4`;
+
+      const miniDots = document.querySelectorAll('.featured-dot');
+      miniDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = 'featured-dot active w-6 h-1.5 rounded-full bg-brand-gold transition-all duration-300';
+        } else {
+          dot.className = 'featured-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300';
+        }
+      });
+    }
+
+    let currentHeroSlide = 0;
+    let heroSlideTimer = null;
+
+    function activateSlide(index) {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots   = document.querySelectorAll('.slide-dot');
+      if (!slides.length) return;
+
+      slides.forEach((s, i) => {
+        if (i === currentHeroSlide && i !== index) {
+          s.classList.remove('active');
+          s.classList.add('leaving');
+          setTimeout(() => s.classList.remove('leaving'), 1700);
+        } else if (i !== index) {
+          s.classList.remove('active', 'leaving');
+        }
+      });
+      dots.forEach(d => d.classList.remove('active'));
+
+      currentHeroSlide = index;
+      slides[currentHeroSlide].classList.remove('leaving');
+      slides[currentHeroSlide].style.animation = 'none';
+      slides[currentHeroSlide].offsetHeight; // reflow
+      slides[currentHeroSlide].style.animation = '';
+      slides[currentHeroSlide].classList.add('active');
+      if (dots[currentHeroSlide]) dots[currentHeroSlide].classList.add('active');
+
+      updateFeaturedCard(currentHeroSlide);
+    }
+
+    function nextHeroSlide() {
+      const slides = document.querySelectorAll('.hero-slide');
+      activateSlide((currentHeroSlide + 1) % slides.length);
+    }
+
+    function startHeroTimer() {
+      clearInterval(heroSlideTimer);
+      heroSlideTimer = setInterval(nextHeroSlide, 6500);
+    }
+
+    window.goToSlide = function(i) {
+      activateSlide(i);
+      startHeroTimer();
+    };
+
+    window.nextFeaturedSlide = function() {
+      const slides = document.querySelectorAll('.hero-slide');
+      activateSlide((currentHeroSlide + 1) % slides.length);
+      startHeroTimer();
+    };
+
+    window.prevFeaturedSlide = function() {
+      const slides = document.querySelectorAll('.hero-slide');
+      activateSlide((currentHeroSlide - 1 + slides.length) % slides.length);
+      startHeroTimer();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      startHeroTimer();
+      updateFeaturedCard(0);
+    });
+  </script>
+</body>
+</html>
