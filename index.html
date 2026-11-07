@@ -157,7 +157,7 @@
         
         <!-- Logo -->
         <a href="#hero" class="flex items-center gap-2 group shrink-0">
-          <img src="logo.png" alt="Gongura Ruchulu Restaurant Logo" class="h-12 sm:h-16 w-auto object-contain group-hover:scale-105 transition duration-300 drop-shadow-lg shrink-0" />
+          <img src="https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/logo.png" onerror="this.src='logo.png'" alt="Gongura Ruchulu Restaurant Logo" class="h-12 sm:h-16 w-auto object-contain group-hover:scale-105 transition duration-300 drop-shadow-lg shrink-0" />
         </a>
 
         <!-- Desktop Navigation Links -->
@@ -176,7 +176,7 @@
           <a href="#location" class="text-neutral-300 hover:text-brand-gold transition">Find Us</a>
         </nav>
 
-        <!-- Right Side Header Controls (Sleek Veg Only + Mobile Hamburger, No Cart button) -->
+        <!-- Right Side Header Controls (Sleek Veg Only + Desktop Cart + Mobile Hamburger) -->
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
           <!-- Single Zomato-Style Veg Only Toggle (Header) -->
           <label for="vegToggleHeader" class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-neutral-900 border border-emerald-500/50 hover:border-emerald-500 cursor-pointer transition select-none shadow-sm shrink-0">
@@ -191,7 +191,14 @@
             </div>
           </label>
 
-          <!-- Mobile Hamburger Menu Button (Cart removed as requested) -->
+          <!-- Desktop Cart Button (Available prominently on Desktop/Laptop) -->
+          <button onclick="toggleCartModal()" class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 hover:bg-brand-gold/20 border border-brand-gold/40 text-amber-300 hover:text-white transition shadow-sm" aria-label="Open Food Cart">
+            <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-gold"></i>
+            <span class="text-xs font-bold uppercase tracking-wider">Cart</span>
+            <span id="desktopCartBadge" class="bg-red-600 text-white text-[10px] font-extrabold px-1.5 py-0.2 rounded-full min-w-[18px] text-center">0</span>
+          </button>
+
+          <!-- Mobile Hamburger Menu Button -->
           <div class="flex items-center lg:hidden">
             <button id="mobileMenuBtn" onclick="toggleMobileNav()" class="p-1.5 text-neutral-300 hover:text-white" aria-label="Open navigation menu">
               <i data-lucide="menu" class="w-6 h-6"></i>
@@ -212,6 +219,10 @@
         <a href="https://wa.me/918807518138?text=Hi%20Gongura%20Ruchulu%2C%20I%20would%20like%20to%20order." target="_blank" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-center text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
           <i data-lucide="message-circle" class="w-4 h-4"></i> Order via WhatsApp
         </a>
+        <button onclick="toggleMobileNav(); toggleCartModal();" class="w-full py-3 rounded-xl bg-neutral-900 border border-brand-gold/40 text-amber-300 font-bold text-center text-xs tracking-wider uppercase flex items-center justify-center gap-2">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-gold"></i>
+          <span>View Cart (<span id="mobileNavCartBadge">0</span>)</span>
+        </button>
         <a href="#menu" onclick="toggleMobileNav()" class="w-full py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-amber-300 font-bold text-center text-xs tracking-wider uppercase">
           Browse Menu Card
         </a>
@@ -224,10 +235,10 @@
 
     <!-- ─── Ken Burns Slideshow Background ─── -->
     <div id="heroSlideshow" class="absolute inset-0 z-0">
-      <div class="hero-slide active" style="background-image: url('hero1.jpg')"></div>
-      <div class="hero-slide"        style="background-image: url('hero2.jpg')"></div>
-      <div class="hero-slide"        style="background-image: url('hero3.jpg')"></div>
-      <div class="hero-slide"        style="background-image: url('schezwan_fried_rice.jpg')"></div>
+      <div class="hero-slide active" style="background-image: url('https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/hero1.jpg')"></div>
+      <div class="hero-slide"        style="background-image: url('https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/hero2.jpg')"></div>
+      <div class="hero-slide"        style="background-image: url('https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/hero3.jpg')"></div>
+      <div class="hero-slide"        style="background-image: url('https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/schezwan_fried_rice.jpg')"></div>
     </div>
 
     <!-- Dark gradient overlay — keeps text legible -->
@@ -338,7 +349,7 @@
             <div class="relative rounded-3xl overflow-hidden bg-brand-cardBg border border-brand-gold/30 shadow-2xl">
               <!-- High-res Dish Image with Dynamic Carousel -->
               <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-black">
-                <img id="featuredDishImg" src="gongura_biryani.jpg" alt="Signature Andhra Gongura Dum Biriyani" class="w-full h-full object-cover transition-all duration-700" />
+                <img id="featuredDishImg" src="https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/gongura_biryani.jpg" onerror="this.src='gongura_biryani.jpg'" alt="Signature Andhra Gongura Dum Biriyani" class="w-full h-full object-cover transition-all duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
                 
                 <!-- Category Tag & Slide Navigation Controls -->
@@ -445,7 +456,7 @@
         <div class="grid grid-cols-2 gap-4">
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-xl group">
-              <img src="about_starters.jpg" alt="Andhra Chicken 65 Starters" class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80'" />
+              <img src="https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/about_starters.jpg" onerror="this.src='about_starters.jpg'" alt="Andhra Chicken 65 Starters" class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition duration-500" />
               <div class="p-3 bg-black/90 text-center">
                 <span class="text-xs font-bold text-amber-300">Andhra Chicken 65 Starters</span>
               </div>
@@ -474,7 +485,7 @@
             </div>
 
             <div class="rounded-2xl overflow-hidden border border-brand-gold/30 shadow-xl group">
-              <img src="gongura_biryani.jpg" alt="Authentic Andhra Gongura Dum Biriyani" class="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition duration-500" />
+              <img src="https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/gongura_biryani.jpg" onerror="this.src='gongura_biryani.jpg'" alt="Authentic Andhra Gongura Dum Biriyani" class="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition duration-500" />
               <div class="p-3 bg-black/90 text-center">
                 <span class="text-xs font-bold text-brand-gold">Signature Gongura Dum Biriyani (₹250)</span>
               </div>
@@ -842,6 +853,21 @@
       </div>
     </div>
   </section>
+
+  <!-- Zomato-Style Mobile Floating Cart Strip (Appears when items are added to cart) -->
+  <div id="mobileFloatingCartStrip" class="hidden md:hidden fixed bottom-16 left-3 right-3 z-40 bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-3 rounded-2xl shadow-2xl flex items-center justify-between border border-emerald-400/40">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-black/40 flex items-center justify-center font-bold text-xs" id="stripItemCount">0</div>
+      <div>
+        <div class="text-[10px] font-bold uppercase tracking-wider text-emerald-100">Item(s) in plate</div>
+        <div class="text-sm font-extrabold text-amber-200" id="stripTotalPrice">₹0</div>
+      </div>
+    </div>
+    <button onclick="toggleCartModal()" class="px-4 py-2 rounded-xl bg-black/40 hover:bg-black/60 font-extrabold text-xs uppercase tracking-wider flex items-center gap-1.5 border border-white/20">
+      <span>View Cart</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+    </button>
+  </div>
 
   <!-- Mobile Bottom Quick Navigation Bar (Sticky for Phone Screens) -->
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-neutral-950/95 backdrop-blur-lg border-t border-neutral-800 p-2 flex items-center justify-around text-[10px] font-semibold text-neutral-400">
@@ -1495,12 +1521,18 @@
       const count = cart.reduce((sum, item) => sum + item.qty, 0);
       const b1 = document.getElementById('cartCountBadge');
       if (b1) b1.textContent = count;
-      const b2 = document.getElementById('mobileCartCountBadge');
+      const b2 = document.getElementById('desktopCartBadge');
       if (b2) b2.textContent = count;
       const b3 = document.getElementById('floatingCartBadge');
       if (b3) b3.textContent = count;
       const b4 = document.getElementById('mobileBottomCartBadge');
       if (b4) b4.textContent = count;
+      const b5 = document.getElementById('mobileNavCartBadge');
+      if (b5) b5.textContent = count;
+
+      const strip = document.getElementById('mobileFloatingCartStrip');
+      const stripCount = document.getElementById('stripItemCount');
+      const stripPrice = document.getElementById('stripTotalPrice');
 
       const container = document.getElementById('cartItemsContainer');
       const subtotalEl = document.getElementById('cartSubtotal');
@@ -1517,6 +1549,7 @@
         `;
         subtotalEl.textContent = '₹0';
         grandTotalEl.textContent = '₹0';
+        if (strip) strip.classList.add('hidden');
         lucide.createIcons();
         return;
       }
@@ -1548,6 +1581,17 @@
 
       subtotalEl.textContent = `₹${subtotal}`;
       grandTotalEl.textContent = `₹${subtotal}`;
+
+      if (strip) {
+        const isCartOpen = !document.getElementById('cartModal').classList.contains('hidden');
+        if (!isCartOpen && count > 0) {
+          strip.classList.remove('hidden');
+          if (stripCount) stripCount.textContent = count;
+          if (stripPrice) stripPrice.textContent = '₹' + subtotal;
+        } else {
+          strip.classList.add('hidden');
+        }
+      }
       lucide.createIcons();
     }
 
@@ -1635,6 +1679,15 @@
           menuFab.classList.remove('hidden');
         }
       }
+
+      const strip = document.getElementById('mobileFloatingCartStrip');
+      if (strip) {
+        if (isOpening) {
+          strip.classList.add('hidden');
+        } else if (cart.length > 0) {
+          strip.classList.remove('hidden');
+        }
+      }
     }
 
     function openReviewModal() {
@@ -1682,7 +1735,7 @@
         title: "Gongura Dum Biriyani",
         desc: "Slow-dum cooked chicken infused with authentic tangy Gongura leaf paste",
         price: "₹250",
-        img: "gongura_biryani.jpg",
+        img: "https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/gongura_biryani.jpg",
         avatar: "B",
         author: "Bhargavi Jagarapu (Local Guide)",
         review: "As I'm in Chennai, I miss Andhra biryani. Gongura Ruchulu fulfilled it with authentic spice and taste!"
@@ -1692,7 +1745,7 @@
         title: "Andhra Chicken 65",
         desc: "Fiery marinated boneless chicken tossed with fresh curry leaves & Guntur spices",
         price: "₹160",
-        img: "about_starters.jpg",
+        img: "https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/about_starters.jpg",
         avatar: "K",
         author: "Kishore Reddy (Verified Customer)",
         review: "Super crispy, succulent, and packed with that genuine Andhra spice punch! Must try with Biriyani."
@@ -1702,7 +1755,7 @@
         title: "Chicken Lollipop (5 pcs)",
         desc: "Crispy chicken drumettes tossed with signature spices, served with fresh lemon & onion rings",
         price: "₹150",
-        img: "hero3.jpg",
+        img: "https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/hero3.jpg",
         avatar: "V",
         author: "Venkatesh B. (Regular Foodie)",
         review: "Juicy inside, ultra-crispy outside. Ordered via WhatsApp, delivered piping hot within 25 minutes!"
@@ -1712,7 +1765,7 @@
         title: "Chicken Schezwan Fried Rice",
         desc: "Wok-tossed long-grain basmati with fiery Schezwan chili, tender chicken & crisp spring onions",
         price: "₹140",
-        img: "schezwan_fried_rice.jpg",
+        img: "https://raw.githubusercontent.com/afreedid/gonguraruchulu/main/schezwan_fried_rice.jpg",
         avatar: "D",
         author: "Divya Ramesh (Google Review)",
         review: "Generous portion, authentic wok aroma, and that fiery punch! Best value comfort meal in Mugalivakkam."
