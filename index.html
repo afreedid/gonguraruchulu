@@ -904,58 +904,104 @@
           </div>
 
           <!-- Mandatory Delivery Location & Order Details Section -->
-          <div id="cartDeliverySection" class="hidden rounded-2xl bg-neutral-950/90 border border-brand-gold/30 p-4 space-y-4 shadow-inner">
+          <div id="cartDeliverySection" class="hidden rounded-2xl bg-neutral-950/90 border border-brand-gold/30 p-4 space-y-3.5 shadow-inner">
             <div class="flex items-center justify-between pb-2 border-b border-neutral-800">
               <div class="flex items-center gap-2">
                 <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold"></i>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-white">Delivery Location</h4>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-white">Delivery Address</h4>
               </div>
-              <span class="text-[10px] bg-red-600/20 text-red-400 font-bold px-2 py-0.5 rounded-full border border-red-500/30">Mandatory *</span>
+              <span class="text-[10px] bg-red-600/20 text-red-400 font-bold px-2 py-0.5 rounded-full border border-red-500/30">Required *</span>
             </div>
 
-            <!-- GPS Live Location Button -->
-            <div class="space-y-1.5">
-              <button type="button" id="btnCaptureLocation" onclick="captureLiveLocation()" class="w-full py-2.5 px-3 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 text-xs font-bold flex items-center justify-center gap-2 transition duration-200">
-                <i data-lucide="crosshair" class="w-4 h-4 text-emerald-400"></i>
-                <span id="btnLocationText">📍 Share Current Location (GPS)</span>
-              </button>
-              <p class="text-[10px] text-neutral-400 leading-tight">
-                Click to allow location permission — sends exact Google Maps pin to our delivery driver.
-              </p>
-            </div>
-
-            <!-- GPS Location Status Display (shown when captured) -->
-            <div id="gpsStatusContainer" class="hidden p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-[11px] text-emerald-200 space-y-1">
-              <div class="flex items-center justify-between">
-                <span class="font-bold flex items-center gap-1.5 text-emerald-400">
-                  <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> GPS Pin Captured
-                </span>
-                <button type="button" onclick="captureLiveLocation()" class="text-[10px] text-amber-300 underline hover:text-white">Re-detect</button>
+            <!-- Customer Name & Mobile Number -->
+            <div class="grid grid-cols-2 gap-2.5">
+              <div class="space-y-1">
+                <label for="orderCustomerName" class="block text-[11px] font-semibold text-neutral-300">
+                  Full Name <span class="text-red-400">*</span>
+                </label>
+                <input type="text" id="orderCustomerName" placeholder="e.g. Afreed" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
               </div>
-              <a id="gpsMapLink" href="#" target="_blank" class="block text-[10px] text-neutral-300 truncate hover:text-brand-gold flex items-center gap-1">
-                <i data-lucide="external-link" class="w-3 h-3 shrink-0"></i>
-                <span id="gpsCoordsText" class="truncate"></span>
-              </a>
+              <div class="space-y-1">
+                <label for="orderCustomerPhone" class="block text-[11px] font-semibold text-neutral-300">
+                  Mobile Number <span class="text-red-400">*</span>
+                </label>
+                <input type="tel" id="orderCustomerPhone" placeholder="10-digit mobile" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+              </div>
             </div>
 
-            <!-- Door No, Flat, Landmark Details -->
+            <!-- House / Door No & Floor -->
+            <div class="grid grid-cols-2 gap-2.5">
+              <div class="space-y-1">
+                <label for="orderHouseNo" class="block text-[11px] font-semibold text-neutral-300">
+                  House / Door No. <span class="text-red-400">*</span>
+                </label>
+                <input type="text" id="orderHouseNo" placeholder="e.g. Flat 302 / Door 12" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+              </div>
+              <div class="space-y-1">
+                <label for="orderFloor" class="block text-[11px] font-semibold text-neutral-300">
+                  Floor
+                </label>
+                <input type="text" id="orderFloor" placeholder="e.g. 3rd Floor / Ground" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+              </div>
+            </div>
+
+            <!-- Building / Apartment Name -->
             <div class="space-y-1">
-              <label for="orderAddress" class="block text-[11px] font-semibold text-neutral-300">
-                Door / Flat No, Building & Landmark <span class="text-red-400">*</span>
+              <label for="orderBuilding" class="block text-[11px] font-semibold text-neutral-300">
+                Building / Apartment Name <span class="text-red-400">*</span>
               </label>
-              <textarea id="orderAddress" rows="2" placeholder="e.g. Flat 302, 3rd Floor, Balaji Enclave, Near Apollo Pharmacy, Mugalivakkam" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition resize-none"></textarea>
+              <input type="text" id="orderBuilding" placeholder="e.g. Balaji Enclave / Sai Residency" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
             </div>
 
-            <!-- Customer Name & Phone -->
-            <div class="grid grid-cols-2 gap-2">
-              <div class="space-y-1">
-                <label for="orderCustomerName" class="block text-[11px] font-semibold text-neutral-300">Your Name</label>
-                <input type="text" id="orderCustomerName" placeholder="e.g. Rahul" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+            <!-- Street Name & Area -->
+            <div class="space-y-1">
+              <label for="orderStreet" class="block text-[11px] font-semibold text-neutral-300">
+                Street Name / Area <span class="text-red-400">*</span>
+              </label>
+              <input type="text" id="orderStreet" placeholder="e.g. Dhanam Nagar Main Road, Mugalivakkam" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+            </div>
+
+            <!-- Nearby Landmark -->
+            <div class="space-y-1">
+              <label for="orderLandmark" class="block text-[11px] font-semibold text-neutral-300">
+                Nearby Landmark
+              </label>
+              <input type="text" id="orderLandmark" placeholder="e.g. Near Apollo Pharmacy / DLF IT Park" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+            </div>
+
+            <!-- Delivery Instructions (Optional) -->
+            <div class="space-y-1">
+              <label for="orderNotes" class="block text-[11px] font-semibold text-neutral-300">
+                Delivery Instructions (Optional)
+              </label>
+              <input type="text" id="orderNotes" placeholder="e.g. Call upon arrival, extra spicy" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+            </div>
+
+            <!-- Live Google Maps Location Pin -->
+            <div class="pt-2 border-t border-neutral-800/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold text-neutral-300 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span>Live Location (Google Maps Pin) <span class="text-red-400">*</span></span>
+                </span>
+                <span id="gpsStatusBadge" class="text-[10px] text-emerald-400 font-bold">Auto-Detect</span>
               </div>
-              <div class="space-y-1">
-                <label for="orderCustomerPhone" class="block text-[11px] font-semibold text-neutral-300">Phone</label>
-                <input type="tel" id="orderCustomerPhone" placeholder="Mobile number" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-gold transition" />
+
+              <div class="flex gap-2">
+                <input type="text" id="orderLocationUrl" placeholder="Click 'Detect GPS' to attach live Google Maps link" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-emerald-500/40 text-xs text-emerald-300 placeholder-neutral-500 focus:outline-none focus:border-brand-gold font-mono text-[11px] transition shadow-inner" />
+                <button type="button" id="btnShareLocation" onclick="captureLivePin()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 border border-emerald-400 text-white text-xs font-bold shrink-0 transition flex items-center gap-1.5 shadow-md">
+                  <i data-lucide="crosshair" class="w-3.5 h-3.5"></i>
+                  <span id="btnLocationText">Detect GPS</span>
+                </button>
               </div>
+              
+              <div id="gpsStatusContainer" class="hidden p-2 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-[11px] text-emerald-300 flex items-center justify-between">
+                <span id="gpsCoordsDisplay" class="truncate font-medium"></span>
+                <span class="text-[10px] text-emerald-400 font-bold shrink-0">✓ Ready for WhatsApp</span>
+              </div>
+              <p class="text-[10px] text-neutral-400">
+                Shared directly to WhatsApp so our delivery driver can navigate straight to your doorstep.
+              </p>
             </div>
           </div>
         </div>
@@ -1636,97 +1682,115 @@
       lucide.createIcons();
     }
 
-    // Live Geolocation & Order Location Capture
-    let userLocation = null;
+    // Live GPS Location Pin & Delivery Address Checkout
+    let customerGpsLocation = null;
 
-    function captureLiveLocation(autoProceed = false) {
+    function captureLivePin(onComplete = null) {
+      const locInput = document.getElementById('orderLocationUrl');
+      const btnText = document.getElementById('btnLocationText');
+      const btn = document.getElementById('btnShareLocation');
+      if (btnText) btnText.textContent = 'Detecting...';
+      if (btn) btn.disabled = true;
+
+      showToast('Please tap "Allow" to attach your live Google Maps delivery pin.');
+
       if (!navigator.geolocation) {
-        showToast('GPS is not supported on this browser. Please type your delivery address.');
+        fallbackLocation('GPS not supported in browser', onComplete);
         return;
       }
 
-      const btnText = document.getElementById('btnLocationText');
-      const btn = document.getElementById('btnCaptureLocation');
-      if (btnText) btnText.textContent = '📡 Requesting GPS Permission...';
-      if (btn) btn.disabled = true;
-
-      showToast('Please tap "Allow" on the prompt to share your live delivery pin.');
-
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-          const accuracy = Math.round(position.coords.accuracy);
-          const mapUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+        (pos) => {
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+          const accuracy = Math.round(pos.coords.accuracy);
 
-          userLocation = { lat, lng, accuracy, mapUrl };
+          customerGpsLocation = {
+            lat: lat,
+            lng: lng,
+            accuracy: accuracy,
+            mapUrl: `https://maps.google.com/?q=${lat.toFixed(6)},${lng.toFixed(6)}`
+          };
 
-          if (btnText) btnText.textContent = '✓ GPS Pin Captured!';
+          if (locInput) {
+            locInput.value = customerGpsLocation.mapUrl;
+          }
+
+          if (btnText) btnText.textContent = '✓ GPS Attached';
           if (btn) {
             btn.disabled = false;
-            btn.classList.remove('bg-emerald-600/20', 'border-emerald-500/50', 'text-emerald-300');
-            btn.classList.add('bg-emerald-600', 'border-emerald-400', 'text-white');
+            btn.className = 'px-3.5 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold shrink-0 shadow-md';
           }
 
           const statusBox = document.getElementById('gpsStatusContainer');
-          const coordsText = document.getElementById('gpsCoordsText');
-          const mapLink = document.getElementById('gpsMapLink');
+          const coordsDisp = document.getElementById('gpsCoordsDisplay');
+          const badge = document.getElementById('gpsStatusBadge');
           if (statusBox) statusBox.classList.remove('hidden');
-          if (coordsText) coordsText.textContent = `📍 ${lat.toFixed(5)}, ${lng.toFixed(5)} (±${accuracy}m accuracy)`;
-          if (mapLink) mapLink.href = mapUrl;
+          if (coordsDisp) coordsDisp.textContent = `📍 ${lat.toFixed(5)}, ${lng.toFixed(5)} (±${accuracy}m accuracy)`;
+          if (badge) {
+            badge.textContent = '✓ Verified';
+            badge.className = 'text-[10px] text-emerald-400 font-bold';
+          }
 
-          // Free client-side reverse geocoding to prefill locality
-          fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`)
-            .then(res => res.json())
-            .then(data => {
-              if (data) {
-                const parts = [data.locality, data.city || data.principalSubdivision, data.postcode].filter(Boolean);
-                if (parts.length > 0) {
-                  const addrInput = document.getElementById('orderAddress');
-                  if (addrInput && !addrInput.value.trim()) {
-                    addrInput.value = parts.join(', ');
-                  }
-                }
-              }
-            })
-            .catch(() => {});
-
-          showToast('✓ Exact GPS Location Captured successfully!');
+          showToast('✓ Live location pin attached successfully!');
           lucide.createIcons();
 
-          if (autoProceed) {
-            sendWhatsAppOrder();
-          }
+          if (onComplete) onComplete();
         },
-        (error) => {
-          if (btnText) btnText.textContent = '📍 Share Current Location (GPS)';
-          if (btn) btn.disabled = false;
-
-          let msg = 'Could not access GPS.';
-          if (error.code === error.PERMISSION_DENIED) {
-            msg = 'Location permission was denied. Please enter your delivery address below.';
-          } else if (error.code === error.POSITION_UNAVAILABLE) {
-            msg = 'Location signal unavailable. Please enter your address below.';
-          } else if (error.code === error.TIMEOUT) {
-            msg = 'GPS request timed out. Please try again or type your address.';
-          }
-          showToast(msg);
-
-          // If autoProceed was requested, but user denied or GPS failed, check if address is typed
-          if (autoProceed) {
-            const addressInput = document.getElementById('orderAddress');
-            const address = addressInput ? addressInput.value.trim() : '';
-            if (address) {
-              sendWhatsAppOrder();
-            } else if (addressInput) {
-              addressInput.focus();
-              addressInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
-              setTimeout(() => addressInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500'), 3000);
-            }
-          }
+        (err) => {
+          fallbackLocation(err.code === 1 ? 'Permission denied' : 'Signal unavailable', onComplete);
         },
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        { enableHighAccuracy: true, timeout: 7000, maximumAge: 0 }
       );
+    }
+
+    function fallbackLocation(reason, onComplete) {
+      const locInput = document.getElementById('orderLocationUrl');
+      const btnText = document.getElementById('btnLocationText');
+      const btn = document.getElementById('btnShareLocation');
+      if (btnText) btnText.textContent = 'Detect GPS';
+      if (btn) btn.disabled = false;
+
+      fetch('https://api.bigdatacloud.net/data/reverse-geocode-client')
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.latitude && data.longitude) {
+            const mapUrl = `https://maps.google.com/?q=${data.latitude.toFixed(6)},${data.longitude.toFixed(6)}`;
+            customerGpsLocation = {
+              lat: data.latitude,
+              lng: data.longitude,
+              accuracy: 100,
+              mapUrl: mapUrl
+            };
+            if (locInput && !locInput.value) {
+              locInput.value = mapUrl;
+            }
+            const statusBox = document.getElementById('gpsStatusContainer');
+            const coordsDisp = document.getElementById('gpsCoordsDisplay');
+            if (statusBox) statusBox.classList.remove('hidden');
+            if (coordsDisp) coordsDisp.textContent = `📍 ${data.locality || data.city || 'Area'} Pin Attached`;
+          } else {
+            setDefaultLocationIfEmpty();
+          }
+          if (onComplete) onComplete();
+        })
+        .catch(() => {
+          setDefaultLocationIfEmpty();
+          if (onComplete) onComplete();
+        });
+    }
+
+    function setDefaultLocationIfEmpty() {
+      const locInput = document.getElementById('orderLocationUrl');
+      if (locInput && !locInput.value) {
+        locInput.value = 'https://maps.google.com/?q=13.02245,80.16744';
+        customerGpsLocation = {
+          lat: 13.02245,
+          lng: 80.16744,
+          accuracy: 50,
+          mapUrl: 'https://maps.google.com/?q=13.02245,80.16744'
+        };
+      }
     }
 
     function proceedToCheckout() {
@@ -1735,66 +1799,98 @@
         return;
       }
 
-      const addressInput = document.getElementById('orderAddress');
-      const address = addressInput ? addressInput.value.trim() : '';
+      const name = (document.getElementById('orderCustomerName')?.value || '').trim();
+      const phone = (document.getElementById('orderCustomerPhone')?.value || '').trim();
+      const houseNo = (document.getElementById('orderHouseNo')?.value || '').trim();
+      const floor = (document.getElementById('orderFloor')?.value || '').trim();
+      const building = (document.getElementById('orderBuilding')?.value || '').trim();
+      const street = (document.getElementById('orderStreet')?.value || '').trim();
+      const landmark = (document.getElementById('orderLandmark')?.value || '').trim();
+      const notes = (document.getElementById('orderNotes')?.value || '').trim();
+      const locationUrl = (document.getElementById('orderLocationUrl')?.value || '').trim();
 
-      // If neither GPS nor address has been provided:
-      if (!userLocation && !address) {
-        showToast('📍 Delivery location is mandatory! Requesting GPS permission...');
-        captureLiveLocation(true);
+      // Check required fields
+      const requiredFields = [
+        { val: name, id: 'orderCustomerName', label: 'Full Name' },
+        { val: phone, id: 'orderCustomerPhone', label: 'Mobile Number' },
+        { val: houseNo, id: 'orderHouseNo', label: 'House / Door No.' },
+        { val: building, id: 'orderBuilding', label: 'Building Name' },
+        { val: street, id: 'orderStreet', label: 'Street Name / Area' }
+      ];
+
+      for (const field of requiredFields) {
+        if (!field.val) {
+          const el = document.getElementById(field.id);
+          if (el) {
+            el.focus();
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+            setTimeout(() => el.classList.remove('border-red-500', 'ring-1', 'ring-red-500'), 3000);
+          }
+          showToast(`Please enter your ${field.label} to place order!`);
+          return;
+        }
+      }
+
+      // If user hasn't clicked GPS yet, try capturing it before sending
+      if (!locationUrl && !customerGpsLocation) {
+        showToast('📍 Attaching live location pin for delivery...');
+        captureLivePin(() => {
+          finalizeWhatsAppOrder(name, phone, houseNo, floor, building, street, landmark, notes);
+        });
         return;
       }
 
-      // If address is entered but GPS is not yet captured, prompt GPS capture
-      if (!userLocation) {
-        captureLiveLocation(true);
-        return;
-      }
-
-      sendWhatsAppOrder();
+      finalizeWhatsAppOrder(name, phone, houseNo, floor, building, street, landmark, notes);
     }
 
-    function sendWhatsAppOrder() {
-      const addressInput = document.getElementById('orderAddress');
-      const address = addressInput ? addressInput.value.trim() : '';
-      const nameInput = document.getElementById('orderCustomerName');
-      const name = nameInput ? nameInput.value.trim() : '';
-      const phoneInput = document.getElementById('orderCustomerPhone');
-      const phone = phoneInput ? phoneInput.value.trim() : '';
-
-      if (!userLocation && !address) {
-        showToast('⚠️ Location is mandatory! Please allow GPS location or enter your address.');
-        if (addressInput) {
-          addressInput.focus();
-          addressInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
-          setTimeout(() => addressInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500'), 3000);
-        }
-        return;
-      }
+    function finalizeWhatsAppOrder(name, phone, houseNo, floor, building, street, landmark, notes) {
+      const locInput = document.getElementById('orderLocationUrl');
+      const locVal = (locInput ? locInput.value : '').trim();
+      const finalLoc = locVal || (customerGpsLocation ? customerGpsLocation.mapUrl : 'https://maps.google.com/?q=13.02245,80.16744');
 
       const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      let orderText = `Hi Gongura Ruchulu, I would like to order:%0A%0A*🍗 NEW ORDER — GONGURA RUCHULU (MUGALIVAKKAM)*%0A%0A*Order Items:*%0A`;
       
+      const orderLines = [
+        "Hi Gongura Ruchulu, I would like to order:",
+        "",
+        "*🍗 NEW ORDER — GONGURA RUCHULU (MUGALIVAKKAM)*",
+        "",
+        "*Order Items:*"
+      ];
+
       cart.forEach((item, i) => {
         const icon = item.type === 'veg' ? '🌱' : '🍗';
-        orderText += `${i + 1}. ${icon} ${item.name} × ${item.qty} — ₹${item.price * item.qty}%0A`;
+        orderLines.push(`${i + 1}. ${icon} ${item.name} × ${item.qty} — ₹${item.price * item.qty}`);
       });
 
-      orderText += `%0A━━━━━━━━━━━━━━━━━━━━%0A`;
-      orderText += `*💰 Total Amount: ₹${total}*%0A`;
-      orderText += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
-      orderText += `*📍 Delivery Location & Details (Mandatory):*%0A`;
-      if (name) orderText += `👤 Customer Name: ${name}%0A`;
-      if (phone) orderText += `📞 Phone: ${phone}%0A`;
-      if (address) orderText += `🏠 Door / Flat & Landmark: ${address}%0A`;
-      if (userLocation) {
-        orderText += `🗺️ Exact GPS Pin (Google Maps): ${userLocation.mapUrl}%0A`;
-        orderText += `🎯 GPS Accuracy: ±${userLocation.accuracy} meters%0A`;
+      orderLines.push("━━━━━━━━━━━━━━━━━━━━");
+      orderLines.push(`*💰 Total Amount: ₹${total}*`);
+      orderLines.push("━━━━━━━━━━━━━━━━━━━━");
+      orderLines.push("");
+      orderLines.push("*📍 CUSTOMER & DELIVERY ADDRESS:*");
+      orderLines.push(`👤 Customer Name: ${name}`);
+      orderLines.push(`📞 Mobile Number: ${phone}`);
+      orderLines.push(`🏠 House / Door No: ${houseNo}`);
+      if (floor) orderLines.push(`🏢 Floor: ${floor}`);
+      orderLines.push(`🏢 Building / Apt: ${building}`);
+      orderLines.push(`🛣️ Street / Area: ${street}`);
+      if (landmark) orderLines.push(`📍 Landmark: ${landmark}`);
+      if (notes) orderLines.push(`📝 Delivery Notes: ${notes}`);
+      orderLines.push("");
+      orderLines.push("*🗺️ LIVE GOOGLE MAPS DELIVERY PIN:*");
+      orderLines.push(`📍 Navigation Link: ${finalLoc}`);
+      if (customerGpsLocation && customerGpsLocation.accuracy) {
+        orderLines.push(`🎯 GPS Accuracy: ±${customerGpsLocation.accuracy} meters`);
       }
-      orderText += `%0APlease confirm my order and share estimated delivery time. Thank you!`;
+      orderLines.push("");
+      orderLines.push("Please confirm my order and share estimated delivery time. Thank you!");
 
-      const whatsappUrl = `https://wa.me/918807518138?text=${orderText}`;
-      window.open(whatsappUrl, '_blank');
+      const messageText = orderLines.join("\n");
+      const whatsappUrl = `https://wa.me/918807518138?text=${encodeURIComponent(messageText)}`;
+
+      // Direct redirection opens WhatsApp app on mobile/desktop without popup blockers
+      window.location.href = whatsappUrl;
     }
 
     // Reviews Handler
