@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gonguraruchulu.vercel.app/sitemap.xml
